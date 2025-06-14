@@ -23,7 +23,7 @@
 
 .logo-img {
   width: 42px;
-  background-image: url('../public/logo.png');
+  background-image: url('/logo.png');
   /* Doğru kullanım */
 
   height: 42px;

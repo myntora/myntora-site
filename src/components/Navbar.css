@@ -21,17 +21,6 @@
   align-items: center;
 }
 
-.logo-img {
-  width: 42px;
-  background-image: url('logo.png');
-  /* Doğru kullanım */
-
-  height: 42px;
-  margin-right: 12px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
-
 .logo-text {
   font-size: 1.7em;
   font-weight: bold;

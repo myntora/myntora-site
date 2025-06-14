@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <img src="'../public/logo.png'" alt="Myntora Logo" className="logo-img" />
+        <img alt="Myntora Logo" className="logo-img" />
         <h2 className="logo-text">Myntora</h2>
       </div>
       <div className="nav-links">

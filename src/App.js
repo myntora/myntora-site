@@ -13,7 +13,9 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/myntora-site" element={<Home />} />
+        <Route path="/Myntora-site" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/games" element={<Games />} />
         <Route path="/solutions" element={<Solutions />} />

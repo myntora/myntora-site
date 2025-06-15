@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">Myntora</div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/Home">Home</Link></li>
         <li><Link to="/About">Information</Link></li>
         <li><Link to="/games">Games</Link></li>
         <li><Link to="/solutions">Solutions</Link></li>

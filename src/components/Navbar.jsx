@@ -1,34 +1,43 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import { FiMenu } from 'react-icons/fi';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation(); // 👈 Şu anki sayfayı takip et
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/games', label: 'Games' },
+    { to: '/about', label: 'About' },
+    { to: '/solutions', label: 'Solutions' }
+  ];
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">Myntora</div>
+      <div className="navbar-logo">
+        <img src="/myntora-site/logo.png" alt="Myntora Logo" className="logo-img" />
+        <h1 className="logo-text">MYNTORA</h1>
+      </div>
+
+
+      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
 
       <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/games" onClick={closeMenu}>Games</Link></li>
-        <li><Link to="/about" onClick={closeMenu}>About</Link></li>
-        <li><Link to="/solutions" onClick={closeMenu}>Solutions</Link></li>
+        {navLinks.map((link) => (
+          <li key={link.to}>
+            <Link
+              to={link.to}
+              onClick={closeMenu}
+              className={location.pathname === link.to ? 'active' : ''}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
-
-      <button className="menu-toggle" onClick={toggleMenu}>
-        <FiMenu />
-      </button>
-
     </nav>
   );
 };

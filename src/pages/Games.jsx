@@ -33,7 +33,7 @@ const Games = () => {
             key={index}
             title={game.title}
             description={game.description}
-            imageUrl={`/myntora-site${game.imageUrl}`}
+            imageUrl={game.imageUrl}
             etsyLink={game.etsyLink}
           />
         ))}

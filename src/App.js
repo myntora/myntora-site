@@ -6,20 +6,18 @@ import About from './pages/About';
 import Games from './pages/Games';
 import Solutions from './pages/Solutions';
 
-import './App.css'; // Burada background tanımı yapılmış olacak
+import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/myntora-site">
       <Navbar />
       <Routes>
-        <Route path="/Myntora-site" element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/games" element={<Games />} />
         <Route path="/solutions" element={<Solutions />} />
-
       </Routes>
     </Router>
   );

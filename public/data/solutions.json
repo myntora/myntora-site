@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "the-last-note",
+    "title": "The Last Note",
+    "type": "text",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "one-hour-left",
+    "title": "One Hour Left",
+    "type": "code",
+    "prompt": "Enter the 4-digit code to unlock the solution.",
+    "answer": "2491"
+  },
+  {
+    "slug": "room-103",
+    "title": "Room 103",
+    "type": "choice",
+    "prompt": "What was the final action needed to escape?",
+    "options": [
+      "Break the mirror",
+      "Use the lighter",
+      "Search the rug"
+    ],
+    "answer": "Use the lighter"
+  },
+  {
+    "slug": "the-silent-ward",
+    "title": "The Silent Ward",
+    "description": "An abandoned psychiatric hospital holds a terrifying secret. Will you uncover the truth?",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith",
+    "type": "text"
+  },
+  {
+    "slug": "the-memory-loop",
+    "title": "The Memory Loop",
+    "type": "text",
+    "description": "Decode fragmented memories to solve a psychological mystery.",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "the-memory-loop-2",
+    "title": "The Memory Loop 2",
+    "type": "text",
+    "description": "The mind is a maze. Navigate through twists and lies to find what’s real.",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "the-lighthouse-keeper",
+    "title": "The Lighthouse Keeper",
+    "type": "text",
+    "description": "A light that never went out. Discover what happened in the last stormy night.",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "whispers-in-the-conservatory",
+    "title": "Whispers in the Conservatory",
+    "type": "text",
+    "description": "A secret murder. A missing motive. Can you hear the whispers in the silence?",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "the-affair-file",
+    "title": "The Affair File",
+    "type": "text",
+    "description": "Dive into a case of lies, jealousy, and betrayal. Nothing is as it seems.",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "detective-dad",
+    "title": "Detective Dad",
+    "type": "text",
+    "description": "A light-hearted mystery game made for families to surprise Dad!",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  },
+  {
+    "slug": "all-of-you",
+    "title": "All of You – Serial Killer Bundle",
+    "type": "text",
+    "description": "Solve 4 connected murders. 1 serial killer ties them all together. Can you catch them?",
+    "prompt": "Who was the killer?",
+    "answer": "Meredith"
+  }
+]

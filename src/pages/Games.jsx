@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import GameCard from '../components/GameCard';
+import './Games.css';
 
 const Games = () => {
-    return (
-        <div style={{ padding: '40px' }}>
-            <h1>Available Games</h1>
-            <p>Here you'll find all the escape room experiences.</p>
-        </div>
-    );
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await fetch('/data/games.json');
+        const data = await response.json();
+        setGames(data);
+      } catch (error) {
+        console.error('Veri alınamadı:', error);
+      }
+    };
+
+    fetchGames();
+  }, []);
+
+  return (
+    <div className="games-wrapper">
+      <div className="games-header">
+        <p className="games-label">📁 CASE ARCHIVE – ACCESS LEVEL: PUBLIC</p>
+        <h1 className="games-title">Myntora Game Files</h1>
+        <p className="games-tagline">Uncover puzzles. Solve mysteries. One file at a time.</p>
+      </div>
+
+      <div className="games-grid">
+        {games.map((game, index) => (
+          <GameCard
+            key={index}
+            title={game.title}
+            description={game.description}
+            imageUrl={game.imageUrl}
+            etsyLink={game.etsyLink}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Games;

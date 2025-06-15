@@ -1,79 +1,64 @@
+/* Home.css */
 .home-container {
-    font-family: 'Georgia', serif;
-    color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* 👈 Sadece bu div için geçerli */
+  background: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+  font-family: 'Georgia', serif;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
-.hero-section {
-    position: relative;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.home-content {
+  max-width: 700px;
+  text-align: center;
+  background-color: #ffffffcc;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    padding: 40px;
-    text-align: center;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: auto;
+.home-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
 }
 
-
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #f4e4c1;
+.home-title {
+  font-size: 2.8rem;
+  color: #111;
+  margin-bottom: 16px;
 }
 
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    color: #ddd;
+.home-tagline {
+  font-size: 1.1rem;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 32px;
 }
 
-.hero-button {
-    padding: 12px 28px;
-    background-color: #c2a060;
-    color: #000;
-    font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.hero-button:hover {
-    background-color: #e4c589;
-    color: #000;
+.home-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.intro-section {
-    background-color: #e3cfa8;
-    padding: 40px;
-    color: #3b2a1c;
-    border-radius: 12px;
-    font-family: 'Georgia', serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.intro-section h2 {
-    color: black;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.intro-section p {
-    font-size: 1.1rem;
-    color: black;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
+.home-btn:hover {
+  background-color: #333;
 }

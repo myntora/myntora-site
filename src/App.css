@@ -32,7 +32,24 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+p,
+li,
+a {
+  font-family: 'Georgia', serif;
 }

@@ -1,23 +1,20 @@
 import React from 'react';
 import './Home.css';
-import bg from '../assets/vintage.jpg';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="hero-section">
-        <div className="hero-overlay">
-          <h1 className="hero-title">Welcome to Myntora</h1>
-          <p className="hero-subtitle">Where mystery meets design. Explore immersive printable escape games crafted with elegance and story.</p>
-          
+      <div className="home-content">
+        <p className="home-label">MYNTORA FILE SYSTEM</p>
+        <h1 className="home-title">Welcome, Investigator.</h1>
+        <p className="home-tagline">Enter a world of cryptic puzzles and narrative mysteries.</p>
 
+        <div className="home-buttons">
+          <Link to="/games" className="home-btn">🔍 Explore Games</Link>
+          <Link to="/solutions" className="home-btn">🗝️ Submit a Solution</Link>
         </div>
       </div>
-
-      <section className="intro-section">
-        <h2>About Our Vision</h2>
-        <p>Myntora is more than a game brand. It is a storytelling studio that brings digital mystery games to life through printable formats. Each experience is handcrafted with puzzles, narrative depth, and timeless aesthetics. We don't just make games — we make experiences that linger.</p>
-      </section>
     </div>
   );
 };

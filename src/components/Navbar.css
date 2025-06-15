@@ -48,6 +48,7 @@
 }
 
 .menu-toggle {
+  visibility: hidden;
   font-size: 18px;
   /* daha büyük */
   background: none;
@@ -120,6 +121,10 @@
 
 /* MOBİL STİL */
 @media (max-width: 768px) {
+  .menu-toggle {
+    visibility: visible;
+  }
+
   .navbar {
     padding: 16px 20px;
     position: relative;

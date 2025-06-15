@@ -8,7 +8,7 @@ const Solutions = () => {
   const [isCorrect, setIsCorrect] = useState(null);
 
   useEffect(() => {
-    fetch('/data/solutions.json')
+    fetch('/myntora-site/data/solutions.json')
       .then(res => res.json())
       .then(data => setSolutions(data));
   }, []);

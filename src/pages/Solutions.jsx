@@ -15,9 +15,21 @@ const Solutions = () => {
 
   const handleSubmit = () => {
     if (!activeSolution) return;
-    const correctAnswer = activeSolution.answer.trim().toLowerCase();
+
+    const correctAnswer = activeSolution.answer;
     const inputAnswer = userInput.trim().toLowerCase();
-    setIsCorrect(inputAnswer === correctAnswer);
+
+    if (activeSolution.type === 'choice' && activeSolution.outcomes) {
+      // Room-103 gibi outcome odaklı oyunlarda doğruluk kontrolü yok
+      setIsCorrect(true); // sadece outcome göstereceğiz
+      return;
+    }
+
+    if (Array.isArray(correctAnswer)) {
+      setIsCorrect(correctAnswer.map(a => a.toLowerCase()).includes(inputAnswer));
+    } else {
+      setIsCorrect(inputAnswer === correctAnswer.trim().toLowerCase());
+    }
   };
 
   const handleClose = () => {
@@ -72,17 +84,29 @@ const Solutions = () => {
             <button onClick={handleSubmit}>Submit</button>
 
             {isCorrect === true && (
-              <div className="correct">
-                ✅ Correct! You solved it.
+              <>
+                <div className="correct">
+                  ✅ Correct! You solved it.
+                </div>
                 {activeSolution.fullSolutionText && (
                   <div className="solution-reveal">
                     <p>{activeSolution.fullSolutionText}</p>
                   </div>
                 )}
-              </div>
+              </>
             )}
+
             {isCorrect === false && (
               <p className="incorrect">❌ Incorrect. Try again.</p>
+            )}
+
+            {activeSolution.type === 'choice' &&
+              isCorrect === true &&
+              activeSolution.outcomes &&
+              userInput in activeSolution.outcomes && (
+                <p className="choice-outcome">
+                  {activeSolution.outcomes[userInput]}
+                </p>
             )}
 
             <button className="close-btn" onClick={handleClose}>Close</button>

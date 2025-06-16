@@ -4,89 +4,99 @@
     "title": "The Last Note",
     "type": "text",
     "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "answer": "julian harris",
+    "fullSolutionText": "You uncovered the truth. Julian Harris manipulated the evidence to frame Meredith Addison."
   },
   {
     "slug": "one-hour-left",
     "title": "One Hour Left",
     "type": "code",
-    "prompt": "Enter the 4-digit code to unlock the solution.",
-    "answer": "2491"
+    "prompt": "Enter the 4-letter code to unlock the door.",
+    "answer": "open",
+    "fullSolutionText": "Well done. You’ve unlocked the path to freedom."
   },
   {
     "slug": "room-103",
     "title": "Room 103",
     "type": "choice",
-    "prompt": "What was the final action needed to escape?",
+    "prompt": "Was it a suicide or a murder?",
     "options": [
-      "Break the mirror",
-      "Use the lighter",
-      "Search the rug"
+      "Suicide",
+      "Murder"
     ],
-    "answer": "Use the lighter"
+    "answer": null,
+    "outcomes": {
+      "Suicide": "You believe it was suicide. Perhaps the signs were there all along, hidden in plain sight.",
+      "Murder": "You think someone helped them fall. Trust is a fragile thing in Room 103."
+    }
   },
   {
     "slug": "the-silent-ward",
     "title": "The Silent Ward",
-    "description": "An abandoned psychiatric hospital holds a terrifying secret. Will you uncover the truth?",
-    "prompt": "Who was the killer?",
-    "answer": "Meredith",
-    "type": "text"
+    "type": "code",
+    "prompt": "Enter the 4-digit code to escape the ward.",
+    "answer": "4877",
+    "fullSolutionText": "You’ve escaped the Silent Ward. Not everyone was so lucky."
   },
   {
     "slug": "the-memory-loop",
     "title": "The Memory Loop",
-    "type": "text",
-    "description": "Decode fragmented memories to solve a psychological mystery.",
-    "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "type": "code",
+    "prompt": "Enter the 7-digit code to break the memory loop.",
+    "answer": "2038290",
+    "fullSolutionText": "Loop broken. You’ve escaped the cycle of memory."
   },
   {
     "slug": "the-memory-loop-2",
     "title": "The Memory Loop 2",
     "type": "text",
-    "description": "The mind is a maze. Navigate through twists and lies to find what’s real.",
-    "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "prompt": "Who broke the cycle?",
+    "answer": [
+      "ruce",
+      "ruce harper",
+      "r.",
+      "the writer"
+    ],
+    "fullSolutionText": "You saw through the illusion. Ruce was always the anomaly."
   },
   {
     "slug": "the-lighthouse-keeper",
     "title": "The Lighthouse Keeper",
     "type": "text",
-    "description": "A light that never went out. Discover what happened in the last stormy night.",
     "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "answer": "jack mctavish",
+    "fullSolutionText": "Jack McTavish left more than secrets behind in the storm."
   },
   {
     "slug": "whispers-in-the-conservatory",
     "title": "Whispers in the Conservatory",
     "type": "text",
-    "description": "A secret murder. A missing motive. Can you hear the whispers in the silence?",
     "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "answer": "sabastian mahr",
+    "fullSolutionText": "Sabastian Mahr orchestrated the crime behind layers of silence and subtlety."
   },
   {
     "slug": "the-affair-file",
     "title": "The Affair File",
     "type": "text",
-    "description": "Dive into a case of lies, jealousy, and betrayal. Nothing is as it seems.",
     "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "answer": "michael halden",
+    "fullSolutionText": "Jealousy runs deep. Michael Halden crossed the line from betrayal to murder."
   },
   {
     "slug": "detective-dad",
     "title": "Detective Dad",
     "type": "text",
-    "description": "A light-hearted mystery game made for families to surprise Dad!",
-    "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "prompt": "Who hid the gift?",
+    "answer": "leo",
+    "fullSolutionText": "Leo pulled off the perfect surprise. Case closed, Dad!"
   },
   {
     "slug": "all-of-you",
     "title": "All of You – Serial Killer Bundle",
     "type": "text",
-    "description": "Solve 4 connected murders. 1 serial killer ties them all together. Can you catch them?",
-    "prompt": "Who was the killer?",
-    "answer": "Meredith"
+    "prompt": "Who was the killer behind all 4 cases?",
+    "answer": "daniel",
+    "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. Daniel was the link."
   }
 ]

@@ -40,3 +40,20 @@
     border-radius: 6px;
     text-decoration: none;
 }
+
+/* Tema duyarlı metin rengi için değişkenler */
+:root {
+    --text-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #f1f1f1;
+    }
+}
+
+.choice-outcome {
+    color: var(--text-color);
+    font-style: italic;
+    margin-top: 1rem;
+}

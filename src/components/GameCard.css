@@ -92,14 +92,16 @@
 .solutions-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 24px;
     justify-content: center;
+    padding-bottom: 2rem;
 }
 
 .solution-card {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
+    margin: 8px;
     width: 260px;
     text-align: center;
     cursor: pointer;
@@ -158,6 +160,18 @@
     color: var(--text-color);
     margin-top: 1rem;
     text-decoration: underline;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid var(--text-color);
+    /* Çerçeveyle görünürlük arttı */
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.solution-modal button.close-btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 /* GÖRSEL GERİBİLDİRİM ALANLARI */

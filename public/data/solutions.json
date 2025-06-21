@@ -98,5 +98,17 @@
     "prompt": "Who was the killer behind all 4 cases?",
     "answer": "daniel",
     "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. Daniel was the link."
+  },
+  {
+    "slug": "maze-exit-code",
+    "title": "Maze: Final Exit Code",
+    "prompt": "Enter the 6-digit direction code as LEFT (L) and RIGHT (R), e.g., LRLRRL",
+    "type": "text",
+    "answer": [
+      "LRLRRL",
+      "lrlrrl",
+      "LrLrRl"
+    ],
+    "fullSolutionText": "You found the correct exit path through the maze. Welcome back from the dark."
   }
 ]

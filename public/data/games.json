@@ -75,5 +75,19 @@
         "description": "Solve 4 connected murders. 1 serial killer ties them all together. Can you catch them?",
         "imageUrl": "/myntora-site/images/all-of-you.png",
         "etsyLink": "https://www.etsy.com/listing/4310246337/solve-4-serial-killer-cases-escape-room?ref=shop_home_active_1&pro=1&logging_key=477f2fc2cf8109813a3f1fd3dd45ad4163ea20e4%3A4310246337"
+    },
+    {
+        "id": "Maze Escape Game",
+        "title": "Labyrinth Adventure for Family",
+        "description": "You find yourself trapped in a strange maze... Each document you uncover leads you closer to the exit — but only if you interpret them correctly.",
+        "imageUrl": "/myntora-site/images/Maze_Escape.png",
+        "etsyLink": "https://www.etsy.com/listing/4324345298/maze-escape-game-printable-mystery?ref=shop_home_active_13&pro=1&logging_key=110553ea4db4a8389a77fc16bebf8d982e5b95df%3A4324345298"
+    },
+    {
+        "id": "A Deadly Encore",
+        "title": "A Deadly Encore – Solo Detective Game",
+        "description": "A talented pianist is found dead after her final performance. Was it an accident… or her last note was a message? Search the stage, decode the evidence, and reveal the truth behind the encore no one expected.",
+        "imageUrl": "/myntora-site/images/Curtain_Call.png",
+        "etsyLink": "https://www.etsy.com/listing/4326551960/a-deadly-encore-printable-murder-mystery?ref=shop_home_active_1&pro=1&logging_key=a79a00fa46a14139954bc02a533f24a175467d02%3A4326551960"
     }
 ]

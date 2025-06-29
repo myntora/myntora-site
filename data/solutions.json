@@ -63,9 +63,14 @@
     "slug": "the-lighthouse-keeper",
     "title": "The Lighthouse Keeper",
     "type": "text",
-    "prompt": "Who was the killer?",
-    "answer": "jack mctavish",
-    "fullSolutionText": "Jack McTavish left more than secrets behind in the storm."
+    "prompt": "Enter the 4-digit code to solve",
+    "answer": [
+      "1986",
+      "REFN",
+      "RFEF",
+      "FERN"
+    ],
+    "fullSolutionText": "Well done, Detective. You’ve broken the code and revealed the final truth buried beneath the storm."
   },
   {
     "slug": "whispers-in-the-conservatory",
@@ -96,8 +101,8 @@
     "title": "All of You – Serial Killer Bundle",
     "type": "text",
     "prompt": "Who was the killer behind all 4 cases?",
-    "answer": "daniel",
-    "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. Daniel was the link."
+    "answer": "Elias Mercer",
+    "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. And you saw what no one else did — Elias was behind them all. Each victim was part of a past he couldn't escape. Justice failed him, so he created his own. Now, the truth is finally in the light."
   },
   {
     "slug": "maze-exit-code",

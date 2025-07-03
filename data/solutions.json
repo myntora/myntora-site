@@ -11,8 +11,12 @@
     "slug": "one-hour-left",
     "title": "One Hour Left",
     "type": "code",
-    "prompt": "Enter the 4-letter code to unlock the door.",
-    "answer": "open",
+    "prompt": "Enter the 5-letter code to unlock the door.",
+    "answer": [
+      "Haven",
+      "HAVEN",
+      "haven"
+    ],
     "fullSolutionText": "Well done. You’ve unlocked the path to freedom."
   },
   {

@@ -130,5 +130,38 @@
       "Lena Hart"
     ],
     "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
+  },
+  {
+    "slug": "The Justice Cutter",
+    "title": "The Justice Cutter",
+    "type": "multibox",
+    "prompt": "Match each judgment to the failure it punishes — uncover the truths buried beneath justice.",
+    "answer": [
+      [
+        "Judgment I",
+        "Silent Approval",
+        "🕯️"
+      ],
+      [
+        "Judgment II",
+        "Misguided Judgment",
+        "🗝️"
+      ],
+      [
+        "Judgment III",
+        "Power Through Fear",
+        "🪞"
+      ],
+      [
+        "Judgment IV",
+        "Betrayal of Trust",
+        "🧩"
+      ],
+      [
+        "Judgment V",
+        "Willful Inaction",
+        "🕳️"
+      ]
+    ]
   }
 ]

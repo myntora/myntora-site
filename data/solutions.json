@@ -170,5 +170,20 @@
         "🕳️"
       ]
     ]
+  },
+  {
+    "slug": "the-last-appointment",
+    "title": "The Last Appointment – Solo Mystery Game",
+    "type": "text",
+    "prompt": "Who do you believe is responsible for Dr. Lorne’s death?",
+    "answer": [
+      "dr sienna hale",
+      "sienna hale",
+      "sienna",
+      "Dr. Sienna Hale",
+      "Sienna Hale",
+      "Hale"
+    ],
+    "fullSolutionText": "You've solved The Last Appointment. Dr. Sienna Hale, driven by resentment and fear of exposure, silenced Rachel to protect her career and secrets. The truth was hidden behind a locked door and a professional rivalry that turned deadly."
   }
 ]

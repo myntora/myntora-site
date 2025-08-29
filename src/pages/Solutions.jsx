@@ -7,35 +7,121 @@ const Solutions = () => {
   const [userInput, setUserInput] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
 
+  // verdict state
+  const [verdictQ1, setVerdictQ1] = useState('');
+  const [verdictQ2, setVerdictQ2] = useState('');
+  const [verdictOther, setVerdictOther] = useState('');
+
   useEffect(() => {
     fetch('/myntora-site/data/solutions.json')
       .then(res => res.json())
       .then(data => setSolutions(data));
   }, []);
 
+  function normalize(v) {
+    return (v || '').trim().toLowerCase();
+  }
+
   const handleSubmit = () => {
     if (!activeSolution) return;
 
-    const correctAnswer = activeSolution.answer;
-    const inputAnswer = userInput.trim().toLowerCase();
+    // ------ VERDICT MODE ------
+    if (activeSolution.type === 'verdict' && activeSolution.verdict) {
+      const { q1, q2 } = activeSolution.verdict;
 
-    if (activeSolution.type === 'choice' && activeSolution.outcomes) {
-      // Room-103 gibi outcome odaklı oyunlarda doğruluk kontrolü yok
-      setIsCorrect(true); // sadece outcome göstereceğiz
+      const ansQ1 = normalize(q1.answer);
+      const ansQ2 = normalize(q2.answer);
+
+      const userQ1 = normalize(verdictQ1);
+      const userQ2 = normalize(verdictQ2 === 'Other' ? verdictOther : verdictQ2);
+
+      const ok = userQ1 === ansQ1 && userQ2 === ansQ2;
+      setIsCorrect(ok);
+
+      if (ok && activeSolution.redirectUrl) {
+        setTimeout(() => {
+          window.location.href = activeSolution.redirectUrl;
+        }, 1200);
+      }
       return;
     }
 
-    if (Array.isArray(correctAnswer)) {
-      setIsCorrect(correctAnswer.map(a => a.toLowerCase()).includes(inputAnswer));
-    } else {
-      setIsCorrect(inputAnswer === correctAnswer.trim().toLowerCase());
+    // ------ CHOICE MODE (outcome gösterir, doğruluk yok) ------
+    if (activeSolution.type === 'choice' && activeSolution.outcomes) {
+      setIsCorrect(true);
+      return;
     }
+
+    // ------ TEXT/CODE MODE ------
+    const correctAnswer = activeSolution.answer;
+    const inputAnswer = normalize(userInput);
+
+    if (Array.isArray(correctAnswer)) {
+      setIsCorrect(correctAnswer.map(a => normalize(a)).includes(inputAnswer));
+    } else {
+      setIsCorrect(inputAnswer === normalize(correctAnswer));
+    }
+  };
+
+  const handleOpen = (s) => {
+    setActiveSolution(s);
+    setUserInput('');
+    setIsCorrect(null);
+    setVerdictQ1('');
+    setVerdictQ2('');
+    setVerdictOther('');
   };
 
   const handleClose = () => {
     setActiveSolution(null);
     setUserInput('');
     setIsCorrect(null);
+    setVerdictQ1('');
+    setVerdictQ2('');
+    setVerdictOther('');
+  };
+
+  // Small helper UI blocks
+  const VerdictForm = ({ cfg }) => {
+    const { q1, q2 } = cfg;
+    return (
+      <>
+        {/* Q1 */}
+        <p className="solution-prompt">{q1.prompt}</p>
+        <div style={{ display: 'grid', gap: 8, marginBottom: 16 }}>
+          {q1.options.map(opt => (
+            <label key={opt} style={{ textAlign: 'left' }}>
+              <input
+                type="radio"
+                name="verdict-q1"
+                value={opt}
+                checked={verdictQ1 === opt}
+                onChange={(e) => setVerdictQ1(e.target.value)}
+              />{' '}{opt}
+            </label>
+          ))}
+        </div>
+
+        {/* Q2 */}
+        <p className="solution-prompt">{q2.prompt}</p>
+        <select
+          value={verdictQ2}
+          onChange={(e) => setVerdictQ2(e.target.value)}
+        >
+          <option value="">Choose a suspect</option>
+          {q2.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+        </select>
+
+        {verdictQ2 === 'Other' && (
+          <input
+            type="text"
+            placeholder="Type the name…"
+            value={verdictOther}
+            onChange={(e) => setVerdictOther(e.target.value)}
+          />
+        )}
+      </>
+    );
   };
 
   return (
@@ -43,12 +129,12 @@ const Solutions = () => {
       <div className="solutions-header">
         <p className="solutions-label">🗄️ CONFIDENTIAL ARCHIVE – AUTHORIZED ACCESS ONLY</p>
         <h1 className="solutions-title">Solution Terminal</h1>
-        <p className="solutions-tagline">Each file below requires a case-specific code. Input wisely.</p>
+        <p className="solutions-tagline">Each file below requires a case-specific solution. Input wisely.</p>
       </div>
 
       <div className="solutions-grid">
         {solutions.map((s) => (
-          <div key={s.slug} className="solution-card" onClick={() => setActiveSolution(s)}>
+          <div key={s.slug} className="solution-card" onClick={() => handleOpen(s)}>
             <h3>{s.title}</h3>
             <p>Click to enter your solution</p>
           </div>
@@ -61,6 +147,10 @@ const Solutions = () => {
             <h2>{activeSolution.title}</h2>
             <p className="solution-prompt">{activeSolution.prompt}</p>
 
+            {activeSolution.type === 'verdict' && activeSolution.verdict && (
+              <VerdictForm cfg={activeSolution.verdict} />
+            )}
+
             {activeSolution.type === 'choice' ? (
               <select
                 value={userInput}
@@ -70,7 +160,9 @@ const Solutions = () => {
                   <option key={i} value={opt}>{opt}</option>
                 ))}
               </select>
-            ) : (
+            ) : null}
+
+            {(activeSolution.type === 'text' || activeSolution.type === 'code') && (
               <input
                 type="text"
                 placeholder="Enter your answer..."
@@ -85,9 +177,7 @@ const Solutions = () => {
 
             {isCorrect === true && (
               <>
-                <div className="correct">
-                  ✅ Correct! You solved it.
-                </div>
+                <div className="correct">✅ Correct! You solved it.</div>
                 {activeSolution.fullSolutionText && (
                   <div className="solution-reveal">
                     <p>{activeSolution.fullSolutionText}</p>
@@ -107,7 +197,7 @@ const Solutions = () => {
                 <p className="choice-outcome">
                   {activeSolution.outcomes[userInput]}
                 </p>
-            )}
+              )}
 
             <button className="close-btn" onClick={handleClose}>Close</button>
           </div>

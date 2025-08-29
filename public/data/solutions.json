@@ -7,14 +7,26 @@
     "answer": "julian harris",
     "fullSolutionText": "You uncovered the truth. Julian Harris manipulated the evidence to frame Meredith Addison."
   },
-  {
-    "slug": "one-hour-left",
-    "title": "One Hour Left",
-    "type": "code",
-    "prompt": "Enter the 4-letter code to unlock the door.",
-    "answer": "open",
-    "fullSolutionText": "Well done. You’ve unlocked the path to freedom."
+{
+  "slug": "one-hour-left",
+  "title": "One Hour Left",
+  "type": "verdict",
+  "prompt": "Submit your final verdict before midnight.",
+  "verdict": {
+    "q1": {
+      "prompt": "Based on the evidence, is Michael Grant:",
+      "options": ["Guilty", "Innocent"],
+      "answer": "Innocent"
+    },
+    "q2": {
+      "prompt": "If Innocent, who is the true perpetrator?",
+      "options": ["Julia Carter", "Robert Hayes", "Emily Rhodes", "Other"],
+      "answer": "Julia Carter"
+    }
   },
+  "fullSolutionText": "Emergency stay issued. You exonerated Michael and identified the true perpetrator.",
+  "redirectUrl": "https://myntora.github.io/myntora-site/solutions#ohl-resolution"
+},
   {
     "slug": "room-103",
     "title": "Room 103",

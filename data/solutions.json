@@ -7,18 +7,26 @@
     "answer": "julian harris",
     "fullSolutionText": "You uncovered the truth. Julian Harris manipulated the evidence to frame Meredith Addison."
   },
-  {
-    "slug": "one-hour-left",
-    "title": "One Hour Left",
-    "type": "code",
-    "prompt": "Enter the 5-letter code to unlock the door.",
-    "answer": [
-      "Haven",
-      "HAVEN",
-      "haven"
-    ],
-    "fullSolutionText": "Well done. You’ve unlocked the path to freedom."
+{
+  "slug": "one-hour-left",
+  "title": "One Hour Left",
+  "type": "verdict",
+  "prompt": "Submit your final verdict before midnight.",
+  "verdict": {
+    "q1": {
+      "prompt": "Based on the evidence, is Michael Grant:",
+      "options": ["Guilty", "Innocent"],
+      "answer": "Innocent"
+    },
+    "q2": {
+      "prompt": "If Innocent, who is the true perpetrator?",
+      "options": ["Julia Carter", "Robert Hayes", "Emily Rhodes", "Other"],
+      "answer": "Julia Carter"
+    }
   },
+  "fullSolutionText": "Emergency stay issued. You exonerated Michael and identified the true perpetrator.",
+  "redirectUrl": "https://myntora.github.io/myntora-site/solutions#ohl-resolution"
+},
   {
     "slug": "room-103",
     "title": "Room 103",
@@ -46,16 +54,9 @@
     "slug": "the-memory-loop",
     "title": "The Memory Loop",
     "type": "code",
-    "prompt": "Enter the correct word to break the memory loop.",
-    "answer": [
-      "loop",
-      "Loop",
-      "LOOP",
-      " loop ",
-      "LOOP ",
-      " loop"
-    ],
-    "fullSolutionText": "✅ Loop broken. Your mind is free. The cycle ends… for now."
+    "prompt": "Enter the 7-digit code to break the memory loop.",
+    "answer": "2038290",
+    "fullSolutionText": "Loop broken. You’ve escaped the cycle of memory."
   },
   {
     "slug": "the-memory-loop-2",
@@ -74,14 +75,9 @@
     "slug": "the-lighthouse-keeper",
     "title": "The Lighthouse Keeper",
     "type": "text",
-    "prompt": "Enter the 4-digit code to solve",
-    "answer": [
-      "1986",
-      "REFN",
-      "RFEF",
-      "FERN"
-    ],
-    "fullSolutionText": "Well done, Detective. You’ve broken the code and revealed the final truth buried beneath the storm."
+    "prompt": "Who was the killer?",
+    "answer": "jack mctavish",
+    "fullSolutionText": "Jack McTavish left more than secrets behind in the storm."
   },
   {
     "slug": "whispers-in-the-conservatory",
@@ -112,8 +108,8 @@
     "title": "All of You – Serial Killer Bundle",
     "type": "text",
     "prompt": "Who was the killer behind all 4 cases?",
-    "answer": "Elias Mercer",
-    "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. And you saw what no one else did — Elias was behind them all. Each victim was part of a past he couldn't escape. Justice failed him, so he created his own. Now, the truth is finally in the light."
+    "answer": "daniel",
+    "fullSolutionText": "You connected the murders. The inconsistencies. The hidden clues. Daniel was the link."
   },
   {
     "slug": "maze-exit-code",
@@ -137,53 +133,5 @@
       "Lena Hart"
     ],
     "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
-  },
-  {
-    "slug": "The Justice Cutter",
-    "title": "The Justice Cutter",
-    "type": "multibox",
-    "prompt": "Match each judgment to the failure it punishes — uncover the truths buried beneath justice.",
-    "answer": [
-      [
-        "Judgment I",
-        "Silent Approval",
-        "🕯️"
-      ],
-      [
-        "Judgment II",
-        "Misguided Judgment",
-        "🗝️"
-      ],
-      [
-        "Judgment III",
-        "Power Through Fear",
-        "🪞"
-      ],
-      [
-        "Judgment IV",
-        "Betrayal of Trust",
-        "🧩"
-      ],
-      [
-        "Judgment V",
-        "Willful Inaction",
-        "🕳️"
-      ]
-    ]
-  },
-  {
-    "slug": "the-last-appointment",
-    "title": "The Last Appointment – Solo Mystery Game",
-    "type": "text",
-    "prompt": "Who do you believe is responsible for Dr. Lorne’s death?",
-    "answer": [
-      "dr sienna hale",
-      "sienna hale",
-      "sienna",
-      "Dr. Sienna Hale",
-      "Sienna Hale",
-      "Hale"
-    ],
-    "fullSolutionText": "You've solved The Last Appointment. Dr. Sienna Hale, driven by resentment and fear of exposure, silenced Rachel to protect her career and secrets. The truth was hidden behind a locked door and a professional rivalry that turned deadly."
   }
 ]

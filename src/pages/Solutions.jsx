@@ -1,5 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import './Solutions.css';
+// --- Choice outcome renderer for structured outcomes (Room 103) ---
+const ChoiceOutcome = ({ outcome }) => {
+  if (!outcome) return null;
+  const { title, profile, reasoning, contradictions, closing } = outcome;
+
+  return (
+    <div className="choice-outcome">
+      {title && <h3 style={{ marginTop: 8 }}>{title}</h3>}
+
+      {profile && (
+        <div style={{ margin: '8px 0 12px' }}>
+          <div style={{ fontWeight: 600 }}>{profile.label}</div>
+          <div style={{ opacity: 0.9 }}>{profile.description}</div>
+        </div>
+      )}
+
+      {Array.isArray(reasoning) && reasoning.length > 0 && (
+        <div style={{ marginBottom: 12 }}>
+          <strong>Reasoning</strong>
+          <ul style={{ marginTop: 6 }}>
+            {reasoning.map((r, i) => <li key={i}>{r}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {Array.isArray(contradictions) && contradictions.length > 0 && (
+        <div style={{ marginBottom: 12 }}>
+          <strong>Contradictions</strong>
+          <ul style={{ marginTop: 6 }}>
+            {contradictions.map((c, i) => <li key={i}>{c}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {closing && <p style={{ fontStyle: 'italic', marginTop: 8 }}>{closing}</p>}
+    </div>
+  );
+};
 
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
@@ -193,11 +231,11 @@ const Solutions = () => {
             {activeSolution.type === 'choice' &&
               isCorrect === true &&
               activeSolution.outcomes &&
-              userInput in activeSolution.outcomes && (
-                <p className="choice-outcome">
-                  {activeSolution.outcomes[userInput]}
-                </p>
+              userInput &&
+              activeSolution.outcomes[userInput] && (
+                <ChoiceOutcome outcome={activeSolution.outcomes[userInput]} />
               )}
+
 
             <button className="close-btn" onClick={handleClose}>Close</button>
           </div>

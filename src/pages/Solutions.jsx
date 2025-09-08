@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Solutions.css';
+
 // --- Choice outcome renderer for structured outcomes (Room 103) ---
 const ChoiceOutcome = ({ outcome }) => {
   if (!outcome) return null;
@@ -39,6 +40,50 @@ const ChoiceOutcome = ({ outcome }) => {
   );
 };
 
+// --- Verdict outcome form (One Hour Left) ---
+const VerdictForm = ({ cfg, verdictQ1, setVerdictQ1, verdictQ2, setVerdictQ2, verdictOther, setVerdictOther }) => {
+  const { q1, q2 } = cfg;
+  return (
+    <div className="verdict-form">
+      <p className="solution-prompt">{q1.prompt}</p>
+      <div className="verdict-q1">
+        {q1.options.map(opt => (
+          <label key={opt} className="verdict-radio">
+            <span>{opt}</span>
+
+            <input
+              type="radio"
+              name="verdict-q1"
+              value={opt}
+              checked={verdictQ1 === opt}
+              onChange={(e) => setVerdictQ1(e.target.value)}
+            />
+          </label>
+        ))}
+      </div>
+
+      <p className="solution-prompt">{q2.prompt}</p>
+      <select
+        className="verdict-select"
+        value={verdictQ2}
+        onChange={(e) => setVerdictQ2(e.target.value)}
+      >
+        <option value="">Choose a suspect</option>
+        {q2.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+      </select>
+
+      {verdictQ2 === 'Other' && (
+        <input
+          type="text"
+          placeholder="Type the name…"
+          value={verdictOther}
+          onChange={(e) => setVerdictOther(e.target.value)}
+        />
+      )}
+    </div>
+  );
+};
+
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
   const [activeSolution, setActiveSolution] = useState(null);
@@ -51,9 +96,10 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    fetch('/myntora-site/data/solutions.json')
+    fetch(process.env.PUBLIC_URL + '/data/solutions.json')
       .then(res => res.json())
-      .then(data => setSolutions(data));
+      .then(data => setSolutions(data))
+      .catch(err => console.error("Failed to load solutions.json", err));
   }, []);
 
   function normalize(v) {
@@ -84,7 +130,7 @@ const Solutions = () => {
       return;
     }
 
-    // ------ CHOICE MODE (outcome gösterir, doğruluk yok) ------
+    // ------ CHOICE MODE ------
     if (activeSolution.type === 'choice' && activeSolution.outcomes) {
       setIsCorrect(true);
       return;
@@ -119,49 +165,6 @@ const Solutions = () => {
     setVerdictOther('');
   };
 
-  // Small helper UI blocks
-  const VerdictForm = ({ cfg }) => {
-    const { q1, q2 } = cfg;
-    return (
-      <>
-        {/* Q1 */}
-        <p className="solution-prompt">{q1.prompt}</p>
-        <div style={{ display: 'grid', gap: 8, marginBottom: 16 }}>
-          {q1.options.map(opt => (
-            <label key={opt} style={{ textAlign: 'left' }}>
-              <input
-                type="radio"
-                name="verdict-q1"
-                value={opt}
-                checked={verdictQ1 === opt}
-                onChange={(e) => setVerdictQ1(e.target.value)}
-              />{' '}{opt}
-            </label>
-          ))}
-        </div>
-
-        {/* Q2 */}
-        <p className="solution-prompt">{q2.prompt}</p>
-        <select
-          value={verdictQ2}
-          onChange={(e) => setVerdictQ2(e.target.value)}
-        >
-          <option value="">Choose a suspect</option>
-          {q2.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-        </select>
-
-        {verdictQ2 === 'Other' && (
-          <input
-            type="text"
-            placeholder="Type the name…"
-            value={verdictOther}
-            onChange={(e) => setVerdictOther(e.target.value)}
-          />
-        )}
-      </>
-    );
-  };
-
   return (
     <div className="solutions-wrapper">
       <div className="solutions-header">
@@ -186,7 +189,15 @@ const Solutions = () => {
             <p className="solution-prompt">{activeSolution.prompt}</p>
 
             {activeSolution.type === 'verdict' && activeSolution.verdict && (
-              <VerdictForm cfg={activeSolution.verdict} />
+              <VerdictForm
+                cfg={activeSolution.verdict}
+                verdictQ1={verdictQ1}
+                setVerdictQ1={setVerdictQ1}
+                verdictQ2={verdictQ2}
+                setVerdictQ2={setVerdictQ2}
+                verdictOther={verdictOther}
+                setVerdictOther={setVerdictOther}
+              />
             )}
 
             {activeSolution.type === 'choice' ? (
@@ -235,7 +246,6 @@ const Solutions = () => {
               activeSolution.outcomes[userInput] && (
                 <ChoiceOutcome outcome={activeSolution.outcomes[userInput]} />
               )}
-
 
             <button className="close-btn" onClick={handleClose}>Close</button>
           </div>

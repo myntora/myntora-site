@@ -161,3 +161,49 @@ button:hover {
 .choice-outcome ul {
   padding-left: 18px;
 }
+
+/* Verdict form (One Hour Left) layout */
+.solution-modal {
+  text-align: left;
+}
+
+/* === One Hour Left — tek satırda sağlam hizalama (metin solda, radio sağda) === */
+.solution-modal {
+  text-align: left;
+}
+
+/* modal içini sola hizala */
+
+.verdict-q1 {
+  display: grid;
+  row-gap: 10px;
+  /* seçenekler arası dikey boşluk */
+  margin-bottom: 12px;
+}
+
+.verdict-radio {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  /* sol: metin alanı (wrap), sağ: radio */
+  align-items: center;
+  /* dikey ortala (çok satır olsa da) */
+  column-gap: 12px;
+  width: 100%;
+}
+
+.verdict-radio span {
+  display: block;
+  /* metin yüksekliği kontrolü */
+  line-height: 1.35;
+}
+
+.verdict-radio input {
+  justify-self: end;
+  /* radio’yu sağ kenara yapıştır */
+  align-self: center;
+  /* satırın dikey merkezine sabitle */
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  /* tutarlı görünüm için */
+}

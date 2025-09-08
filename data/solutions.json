@@ -7,26 +7,34 @@
     "answer": "julian harris",
     "fullSolutionText": "You uncovered the truth. Julian Harris manipulated the evidence to frame Meredith Addison."
   },
-{
-  "slug": "one-hour-left",
-  "title": "One Hour Left",
-  "type": "verdict",
-  "prompt": "Submit your final verdict before midnight.",
-  "verdict": {
-    "q1": {
-      "prompt": "Based on the evidence, is Michael Grant:",
-      "options": ["Guilty", "Innocent"],
-      "answer": "Innocent"
+  {
+    "slug": "one-hour-left",
+    "title": "One Hour Left",
+    "type": "verdict",
+    "prompt": "Submit your final verdict before midnight.",
+    "verdict": {
+      "q1": {
+        "prompt": "Based on the evidence, is Michael Grant:",
+        "options": [
+          "Guilty",
+          "Innocent"
+        ],
+        "answer": "Innocent"
+      },
+      "q2": {
+        "prompt": "If Innocent, who is the true perpetrator?",
+        "options": [
+          "Julia Carter",
+          "Robert Hayes",
+          "Emily Rhodes",
+          "Other"
+        ],
+        "answer": "Julia Carter"
+      }
     },
-    "q2": {
-      "prompt": "If Innocent, who is the true perpetrator?",
-      "options": ["Julia Carter", "Robert Hayes", "Emily Rhodes", "Other"],
-      "answer": "Julia Carter"
-    }
+    "fullSolutionText": "Emergency stay issued. You exonerated Michael and identified the true perpetrator.",
+    "redirectUrl": "https://myntora.github.io/myntora-site/solutions#ohl-resolution"
   },
-  "fullSolutionText": "Emergency stay issued. You exonerated Michael and identified the true perpetrator.",
-  "redirectUrl": "https://myntora.github.io/myntora-site/solutions#ohl-resolution"
-},
   {
     "slug": "room-103",
     "title": "Room 103",
@@ -34,12 +42,14 @@
     "prompt": "Was it a suicide or a murder?",
     "options": [
       "Suicide",
-      "Murder"
+      "Murder",
+      "Undetermined"
     ],
     "answer": null,
     "outcomes": {
-      "Suicide": "You believe it was suicide. Perhaps the signs were there all along, hidden in plain sight.",
-      "Murder": "You think someone helped them fall. Trust is a fragile thing in Room 103."
+      "Suicide": "You concluded it was suicide. Your focus on Clara’s depression, debts, and final messages shows empathy and psychological sensitivity. You tried to understand her pain. Still, this path downplays suspicious clues: foreign fingerprints on the wine bottle, an unidentified male silhouette in the lobby, and a possible 2:30 A.M. argument.",
+      "Murder": "You concluded it was murder. Your attention to unexplained DNA, partial fingerprints, CCTV traces, and conflicting statements shows a skeptical, evidence-driven mindset. Still, this path downplays her despair, financial strain, and the torn note—signals that she might have already been close to the edge.",
+      "Undetermined": "You chose Undetermined. You recognized the contradictions and accepted uncertainty—balancing internal struggles against signs of external involvement. This reflects caution and realism: some cases resist neat answers, and Room 103 may remain open pending further investigation."
     }
   },
   {

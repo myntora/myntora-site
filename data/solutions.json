@@ -192,5 +192,17 @@
       "Lena Hart"
     ],
     "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
+  },
+  {
+    "slug": "the-last-appointment",
+    "title": "The Last Appointment",
+    "type": "text",
+    "prompt": "Who killed Dr. Rachel Lorne?",
+    "answer": [
+      "dr sienna hale",
+      "sienna hale",
+      "hale"
+    ],
+    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer."
   }
 ]

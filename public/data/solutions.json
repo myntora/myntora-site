@@ -192,5 +192,16 @@
       "Lena Hart"
     ],
     "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
+  },
+  {
+    "slug": "A Deadly Encore",
+    "title": "A Deadly Encore – Solo Detective Game",
+    "type": "text",
+    "prompt": "Who do you think committed the murder?",
+    "answer": [
+      "lena",
+      "Lena Hart"
+    ],
+    "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
   }
 ]

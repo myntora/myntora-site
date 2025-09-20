@@ -234,66 +234,64 @@
     "cta": "Play another case"
   },
   {
-    "slug": "the-justice-cutter",
-    "title": "The Justice Cutter",
-    "type": "matcher",
-    "prompt": "Match each finger to the correct Judgment title.",
-    "items": [
+    "slug": "the-justice-cutter-cases",
+    "title": "The Justice Cutter — Case Mapping",
+    "type": "case-matcher",
+    "prompt": "Pick the correct crime for each case.",
+    "cases": [
       {
-        "id": "thumb",
-        "label": "Thumb — approval, power, social acceptance",
-        "answer": "Judgment I – The Accuser’s Thumb"
+        "id": "c1",
+        "label": "Case 1 — The Accuser’s Thumb",
+        "answer": "Defamation"
       },
       {
-        "id": "index",
-        "label": "Index — accusation, pointing, directing blame",
-        "answer": "Judgment II – The Devoted Believer"
+        "id": "c2",
+        "label": "Case 2 — The Devoted Believer",
+        "answer": "Complicity by Blind Faith"
       },
       {
-        "id": "middle",
-        "label": "Middle — scorn, anger, defiance",
-        "answer": "Judgment III – The Unrepentant Flame"
+        "id": "c3",
+        "label": "Case 3 — The Unrepentant Flame",
+        "answer": "Cruelty / Scorn"
       },
       {
-        "id": "ring",
-        "label": "Ring — loyalty, vows, complicity in silence",
-        "answer": "Judgment IV – The Faithful Betrayal"
+        "id": "c4",
+        "label": "Case 4 — The Faithful Betrayal",
+        "answer": "Betrayal in Silence"
       },
       {
-        "id": "pinky",
-        "label": "Pinky — innocence, weakness, childhood",
-        "answer": "Judgment V – The Watching Eye"
+        "id": "c5",
+        "label": "Case 5 — The Watching Eye",
+        "answer": "Abandonment of Innocence"
       }
     ],
     "options": [
-      "Judgment I – The Accuser’s Thumb",
-      "Judgment II – The Devoted Believer",
-      "Judgment III – The Unrepentant Flame",
-      "Judgment IV – The Faithful Betrayal",
-      "Judgment V – The Watching Eye"
+      "Defamation",
+      "Complicity by Blind Faith",
+      "Cruelty / Scorn",
+      "Betrayal in Silence",
+      "Abandonment of Innocence",
+      "Negligence",
+      "Obstruction of Justice",
+      "Witness Intimidation",
+      "False Testimony",
+      "Aiding and Abetting"
     ],
-    "fullSolutionText": "Five fingers, five judgments. The Cutter’s message condemns society’s approval of harm, blind faith, scornful indifference, loyal silence, and the abandonment of innocence.",
+    "fullSolutionText": "Each case mirrors one judgment: accusation → defamation, blind faith → complicity, scorn → cruelty, loyal silence → betrayal, and the unprotected child → abandonment of innocence.",
     "reveal": {
-      "verdict": "You solved The Justice Cutter.",
-      "motive": "Each victim embodies a moral failure symbolized by a finger.",
-      "method": "Controlled sedation and staged restraint; post-mortem digit removal as ritual.",
+      "verdict": "You mapped all five cases correctly.",
       "evidence": [
-        "Thumb: society’s quiet approval / looking away.",
-        "Index: false accusation and weaponized blame.",
-        "Middle: mockery, cruelty, and unrepentant harm.",
-        "Ring: closeness that enables betrayal through silence.",
-        "Pinky: innocence left unprotected—seen, yet ignored."
-      ],
-      "timeline": [
-        "I → II → III → IV → V — one hand, five cuts.",
-        "Each scene: disabled logs/cameras, red mark, post-mortem severing."
-      ],
-      "epilogue": "Justice, this time, arrived as a hand of five cuts."
+        "Case 1 aligns with weaponized accusation → Defamation.",
+        "Case 2 centers on unquestioning loyalty → Complicity by Blind Faith.",
+        "Case 3 is open mockery and harm → Cruelty / Scorn.",
+        "Case 4 keeps quiet to stay loyal → Betrayal in Silence.",
+        "Case 5 watches but does not protect → Abandonment of Innocence."
+      ]
     },
     "incorrect": {
-      "generic": "Some matches are wrong. Reconsider each symbol’s meaning and the case titles."
+      "generic": "One or more cases are mismatched. Re-read the case notes and the finger symbolism."
     },
-    "version": "2025-09-21a",
+    "version": "2025-09-21b",
     "cta": "Play another case"
   }
 ]

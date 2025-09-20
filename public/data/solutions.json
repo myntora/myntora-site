@@ -194,14 +194,15 @@
     "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
   },
   {
-    "slug": "A Deadly Encore",
-    "title": "A Deadly Encore – Solo Detective Game",
+    "slug": "the-last-appointment",
+    "title": "The Last Appointment",
     "type": "text",
-    "prompt": "Who do you think committed the murder?",
+    "prompt": "Who killed Dr. Rachel Lorne?",
     "answer": [
-      "lena",
-      "Lena Hart"
+      "dr sienna hale",
+      "sienna hale",
+      "hale"
     ],
-    "fullSolutionText": "You’ve uncovered the truth behind A Deadly Encore. Justice is served."
+    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer."
   }
 ]

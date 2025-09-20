@@ -207,3 +207,162 @@ button:hover {
   height: 16px;
   /* tutarlı görünüm için */
 }
+
+.solution-reveal {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+}
+
+.solution-reveal ul {
+  padding-left: 18px;
+}
+
+.solution-reveal {
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+}
+
+.solution-reveal:before {
+  content: "";
+  display: block;
+  height: 6px;
+  margin: -12px -14px 6px;
+  box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, .15);
+}
+
+.solution-reveal ul {
+  padding-left: 18px;
+  margin: 8px 0;
+}
+
+.solution-reveal p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.matcher-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.matcher-row {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.matcher-row.is-error {
+  border-color: #ffb3b3;
+  background: #fff6f6;
+}
+
+.matcher-label {
+  font-weight: 600;
+}
+
+.matcher-select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.matcher-hint {
+  font-size: 12px;
+  color: #b00020;
+}
+
+/* Scrollable content area inside the Solutions modal */
+.solution-scroll {
+  max-height: 65vh;
+  /* ekranda kaplayacağı üst sınır */
+  overflow-y: auto;
+  /* taşanı kaydır */
+  padding-right: 8px;
+  /* scrollbar olunca metin duvara yapışmasın */
+}
+
+/* Mobilde biraz daha kısa tut */
+@media (max-width: 640px) {
+  .solution-modal {
+    max-height: 60vh;
+  }
+}
+
+/* (İsteğe bağlı) sadece uzun final kutusu da kayabilir */
+.solution-modal {
+  max-height: 100vh;
+  overflow-y: auto;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+}
+
+.solution-modal ul {
+  padding-left: 18px;
+  margin: 8px 0;
+}
+
+.solution-modal p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* vertical list of cases with a select on the right/under */
+.caseMatcher {
+  display: grid;
+  gap: 12px;
+}
+
+.caseRow {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fafafa;
+  display: grid;
+  gap: 8px;
+}
+
+.caseRow.is-error {
+  border-color: #ffb3b3;
+  background: #fff6f6;
+}
+
+.caseLabel {
+  font-weight: 600;
+}
+
+.caseSelect {
+  padding: 8px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+}
+
+.caseHint {
+  font-size: 12px;
+  color: #b00020;
+}
+
+/* scroll clamp (zaten kullandığımız wrapper’a da uygula) */
+.solutions-wrapper {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+@media (max-width: 640px) {
+  .solutions-wrapper {
+    max-height: 58vh;
+  }
+}

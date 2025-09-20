@@ -201,8 +201,97 @@
     "answer": [
       "dr sienna hale",
       "sienna hale",
+      "sienna",
       "hale"
     ],
-    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer."
+    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer.",
+    "reveal": {
+      "verdict": "Homicide by Dr. Sienna Hale",
+      "motive": "Professional rivalry and risk management; the victim had warned that someone was in her files.",
+      "method": "A lethal Triazolam dose potentiated by wine, staged as a locked-room self-harm.",
+      "evidence": [
+        "CCTV shows Hale entering at 19:59 and no recorded exit before TOD.",
+        "Vial with no prints; unknown partial on the glass.",
+        "Door locked from inside; spare unlabeled key in the desk; phone missing."
+      ],
+      "timeline": [
+        "19:59 – Hale enters the floor.",
+        "20:52 – Silent/panic alarm response.",
+        "~21:12 – Estimated time of death.",
+        "21:15 – Body discovered, scene staged."
+      ],
+      "epilogue": "You didn’t just name the killer—you proved the motive and the method. Case closed."
+    },
+    "incorrect": {
+      "generic": "Close—recheck CCTV timing (19:59), the toxicology, and the locked-door staging.",
+      "bySuspect": {
+        "lucien blake": "Last appointment is a red herring. CCTV shows a woman entering at 19:59, and the pharmacology points elsewhere.",
+        "alan ridge": "Emotional motive aside, the sedative dose and staged room require clinical access and knowledge.",
+        "mara cole": "Paperwork anomalies ≠ homicide. Who actually lied about being in the building?"
+      }
+    },
+    "version": "2025-09-20a",
+    "cta": "Play another case"
+  },
+  {
+    "slug": "the-justice-cutter-cases",
+    "title": "The Justice Cutter — Case Mapping",
+    "type": "case-matcher",
+    "prompt": "Pick the correct crime for each case.",
+    "cases": [
+      {
+        "id": "c1",
+        "label": "Case 1 — The Accuser’s Thumb",
+        "answer": "Defamation"
+      },
+      {
+        "id": "c2",
+        "label": "Case 2 — The Devoted Believer",
+        "answer": "Complicity by Blind Faith"
+      },
+      {
+        "id": "c3",
+        "label": "Case 3 — The Unrepentant Flame",
+        "answer": "Cruelty / Scorn"
+      },
+      {
+        "id": "c4",
+        "label": "Case 4 — The Faithful Betrayal",
+        "answer": "Betrayal in Silence"
+      },
+      {
+        "id": "c5",
+        "label": "Case 5 — The Watching Eye",
+        "answer": "Abandonment of Innocence"
+      }
+    ],
+    "options": [
+      "Defamation",
+      "Complicity by Blind Faith",
+      "Cruelty / Scorn",
+      "Betrayal in Silence",
+      "Abandonment of Innocence",
+      "Negligence",
+      "Obstruction of Justice",
+      "Witness Intimidation",
+      "False Testimony",
+      "Aiding and Abetting"
+    ],
+    "fullSolutionText": "Each case mirrors one judgment: accusation → defamation, blind faith → complicity, scorn → cruelty, loyal silence → betrayal, and the unprotected child → abandonment of innocence.",
+    "reveal": {
+      "verdict": "You mapped all five cases correctly.",
+      "evidence": [
+        "Case 1 aligns with weaponized accusation → Defamation.",
+        "Case 2 centers on unquestioning loyalty → Complicity by Blind Faith.",
+        "Case 3 is open mockery and harm → Cruelty / Scorn.",
+        "Case 4 keeps quiet to stay loyal → Betrayal in Silence.",
+        "Case 5 watches but does not protect → Abandonment of Innocence."
+      ]
+    },
+    "incorrect": {
+      "generic": "One or more cases are mismatched. Re-read the case notes and the finger symbolism."
+    },
+    "version": "2025-09-21b",
+    "cta": "Play another case"
   }
 ]

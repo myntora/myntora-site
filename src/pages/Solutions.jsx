@@ -89,6 +89,9 @@ const Solutions = () => {
   const [activeSolution, setActiveSolution] = useState(null);
   const [userInput, setUserInput] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
+  const [hint, setHint] = useState('');
+  const [caseSel, setCaseSel] = useState({});
+  const [caseErr, setCaseErr] = useState({});
 
   // verdict state
   const [verdictQ1, setVerdictQ1] = useState('');
@@ -101,11 +104,22 @@ const Solutions = () => {
       .then(data => setSolutions(data))
       .catch(err => console.error("Failed to load solutions.json", err));
   }, []);
-
-  function normalize(v) {
-    return (v || '').trim().toLowerCase();
+  function getTargetedHint(solution, guessRaw) {
+    const g = normalize(guessRaw);
+    const bySus = solution?.incorrect?.bySuspect || {};
+    for (const key of Object.keys(bySus)) {
+      if (g.includes(normalize(key))) return bySus[key];
+    }
+    return solution?.incorrect?.generic || 'Incorrect. Try again.';
   }
-
+  function normalize(v) {
+    return (v || '')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[^\p{Letter}\p{Number}\s]/gu, '') // noktalama/aksan temizle
+      .replace(/\s+/g, ' ')                        // çoklu boşluk → tek boşluk
+      .trim();
+  }
   const handleSubmit = () => {
     if (!activeSolution) return;
 
@@ -135,34 +149,61 @@ const Solutions = () => {
       setIsCorrect(true);
       return;
     }
+    // ------ CASE-MATCHER MODE ------
+    if (activeSolution?.type === 'case-matcher') {
+      const items = activeSolution.cases || [];
+      const errs = {};
+      let allOk = true;
+
+      items.forEach(it => {
+        const sel = (caseSel[it.id] || '').trim();
+        const ans = (it.answer || '').trim();
+        const ok = sel === ans;
+        errs[it.id] = !ok;
+        if (!ok) allOk = false;
+      });
+
+      setCaseErr(errs);
+      setIsCorrect(allOk);
+      return;
+    }
 
     // ------ TEXT/CODE MODE ------
     const correctAnswer = activeSolution.answer;
     const inputAnswer = normalize(userInput);
 
+    let ok = false;
     if (Array.isArray(correctAnswer)) {
-      setIsCorrect(correctAnswer.map(a => normalize(a)).includes(inputAnswer));
+      ok = correctAnswer.map(a => normalize(a)).includes(inputAnswer);
     } else {
-      setIsCorrect(inputAnswer === normalize(correctAnswer));
+      ok = inputAnswer === normalize(correctAnswer);
     }
+    setIsCorrect(ok);
+    if (!ok) setHint(getTargetedHint(activeSolution, userInput));
   };
 
   const handleOpen = (s) => {
     setActiveSolution(s);
     setUserInput('');
     setIsCorrect(null);
+    setHint('');
     setVerdictQ1('');
     setVerdictQ2('');
     setVerdictOther('');
+    setCaseSel({});
+    setCaseErr({});
   };
 
   const handleClose = () => {
     setActiveSolution(null);
     setUserInput('');
     setIsCorrect(null);
+    setHint('');
     setVerdictQ1('');
     setVerdictQ2('');
     setVerdictOther('');
+    setCaseSel({});
+    setCaseErr({});
   };
 
   return (
@@ -182,6 +223,7 @@ const Solutions = () => {
         ))}
       </div>
 
+
       {activeSolution && (
         <div className="solution-modal-backdrop">
           <div className="solution-modal">
@@ -198,6 +240,26 @@ const Solutions = () => {
                 verdictOther={verdictOther}
                 setVerdictOther={setVerdictOther}
               />
+            )}
+            {activeSolution?.type === 'case-matcher' && (
+              <div className="caseMatcher">
+                {(activeSolution.cases || []).map(cs => (
+                  <div key={cs.id} className={`caseRow ${caseErr[cs.id] ? 'is-error' : ''}`}>
+                    <div className="caseLabel">{cs.label}</div>
+                    <select
+                      className="caseSelect"
+                      value={caseSel[cs.id] || ''}
+                      onChange={(e) => setCaseSel(prev => ({ ...prev, [cs.id]: e.target.value }))}
+                    >
+                      <option value="">— Select a crime —</option>
+                      {(activeSolution.options || []).map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                    {caseErr[cs.id] && <div className="caseHint">Wrong match</div>}
+                  </div>
+                ))}
+              </div>
             )}
 
             {activeSolution.type === 'choice' ? (
@@ -227,16 +289,44 @@ const Solutions = () => {
             {isCorrect === true && (
               <>
                 <div className="correct">✅ Correct! You solved it.</div>
+
+                {/* Minimal metin (eski alan) */}
                 {activeSolution.fullSolutionText && (
                   <div className="solution-reveal">
                     <p>{activeSolution.fullSolutionText}</p>
                   </div>
                 )}
+
+                {/* Zengin final (yeni reveal alanı) */}
+                {activeSolution.reveal && (
+                  <div className="solution-reveal">
+                    {activeSolution.reveal.verdict && <p><strong>Verdict:</strong> {activeSolution.reveal.verdict}</p>}
+                    {activeSolution.reveal.motive && <p><strong>Motive:</strong> {activeSolution.reveal.motive}</p>}
+                    {activeSolution.reveal.method && <p><strong>Method:</strong> {activeSolution.reveal.method}</p>}
+
+                    {Array.isArray(activeSolution.reveal.evidence) && activeSolution.reveal.evidence.length > 0 && (
+                      <>
+                        <p><strong>Key Evidence</strong></p>
+                        <ul>{activeSolution.reveal.evidence.map((e, i) => <li key={i}>{e}</li>)}</ul>
+                      </>
+                    )}
+
+                    {Array.isArray(activeSolution.reveal.timeline) && activeSolution.reveal.timeline.length > 0 && (
+                      <>
+                        <p><strong>Timeline</strong></p>
+                        <ul>{activeSolution.reveal.timeline.map((t, i) => <li key={i}>{t}</li>)}</ul>
+                      </>
+                    )}
+
+                    {activeSolution.reveal.epilogue && <p style={{ fontStyle: 'italic' }}>{activeSolution.reveal.epilogue}</p>}
+                  </div>
+                )}
               </>
             )}
 
+
             {isCorrect === false && (
-              <p className="incorrect">❌ Incorrect. Try again.</p>
+              <p className="incorrect">❌ {hint || 'Incorrect. Try again.'}</p>
             )}
 
             {activeSolution.type === 'choice' &&
@@ -251,6 +341,8 @@ const Solutions = () => {
           </div>
         </div>
       )}
+
+
     </div>
   );
 };

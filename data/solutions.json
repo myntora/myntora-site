@@ -201,8 +201,99 @@
     "answer": [
       "dr sienna hale",
       "sienna hale",
+      "sienna",
       "hale"
     ],
-    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer."
+    "fullSolutionText": "You traced the timing, inconsistencies, and pharmacology. Dr. Sienna Hale is the killer.",
+    "reveal": {
+      "verdict": "Homicide by Dr. Sienna Hale",
+      "motive": "Professional rivalry and risk management; the victim had warned that someone was in her files.",
+      "method": "A lethal Triazolam dose potentiated by wine, staged as a locked-room self-harm.",
+      "evidence": [
+        "CCTV shows Hale entering at 19:59 and no recorded exit before TOD.",
+        "Vial with no prints; unknown partial on the glass.",
+        "Door locked from inside; spare unlabeled key in the desk; phone missing."
+      ],
+      "timeline": [
+        "19:59 – Hale enters the floor.",
+        "20:52 – Silent/panic alarm response.",
+        "~21:12 – Estimated time of death.",
+        "21:15 – Body discovered, scene staged."
+      ],
+      "epilogue": "You didn’t just name the killer—you proved the motive and the method. Case closed."
+    },
+    "incorrect": {
+      "generic": "Close—recheck CCTV timing (19:59), the toxicology, and the locked-door staging.",
+      "bySuspect": {
+        "lucien blake": "Last appointment is a red herring. CCTV shows a woman entering at 19:59, and the pharmacology points elsewhere.",
+        "alan ridge": "Emotional motive aside, the sedative dose and staged room require clinical access and knowledge.",
+        "mara cole": "Paperwork anomalies ≠ homicide. Who actually lied about being in the building?"
+      }
+    },
+    "version": "2025-09-20a",
+    "cta": "Play another case"
+  },
+  {
+    "slug": "the-justice-cutter",
+    "title": "The Justice Cutter",
+    "type": "matcher",
+    "prompt": "Match each finger to the correct Judgment title.",
+    "items": [
+      {
+        "id": "thumb",
+        "label": "Thumb — approval, power, social acceptance",
+        "answer": "Judgment I – The Accuser’s Thumb"
+      },
+      {
+        "id": "index",
+        "label": "Index — accusation, pointing, directing blame",
+        "answer": "Judgment II – The Devoted Believer"
+      },
+      {
+        "id": "middle",
+        "label": "Middle — scorn, anger, defiance",
+        "answer": "Judgment III – The Unrepentant Flame"
+      },
+      {
+        "id": "ring",
+        "label": "Ring — loyalty, vows, complicity in silence",
+        "answer": "Judgment IV – The Faithful Betrayal"
+      },
+      {
+        "id": "pinky",
+        "label": "Pinky — innocence, weakness, childhood",
+        "answer": "Judgment V – The Watching Eye"
+      }
+    ],
+    "options": [
+      "Judgment I – The Accuser’s Thumb",
+      "Judgment II – The Devoted Believer",
+      "Judgment III – The Unrepentant Flame",
+      "Judgment IV – The Faithful Betrayal",
+      "Judgment V – The Watching Eye"
+    ],
+    "fullSolutionText": "Five fingers, five judgments. The Cutter’s message condemns society’s approval of harm, blind faith, scornful indifference, loyal silence, and the abandonment of innocence.",
+    "reveal": {
+      "verdict": "You solved The Justice Cutter.",
+      "motive": "Each victim embodies a moral failure symbolized by a finger.",
+      "method": "Controlled sedation and staged restraint; post-mortem digit removal as ritual.",
+      "evidence": [
+        "Thumb: society’s quiet approval / looking away.",
+        "Index: false accusation and weaponized blame.",
+        "Middle: mockery, cruelty, and unrepentant harm.",
+        "Ring: closeness that enables betrayal through silence.",
+        "Pinky: innocence left unprotected—seen, yet ignored."
+      ],
+      "timeline": [
+        "I → II → III → IV → V — one hand, five cuts.",
+        "Each scene: disabled logs/cameras, red mark, post-mortem severing."
+      ],
+      "epilogue": "Justice, this time, arrived as a hand of five cuts."
+    },
+    "incorrect": {
+      "generic": "Some matches are wrong. Reconsider each symbol’s meaning and the case titles."
+    },
+    "version": "2025-09-21a",
+    "cta": "Play another case"
   }
 ]

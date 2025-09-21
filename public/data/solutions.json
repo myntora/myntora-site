@@ -112,9 +112,13 @@
   {
     "slug": "the-memory-loop",
     "title": "The Memory Loop",
-    "type": "code",
-    "prompt": "Enter the 7-digit code to break the memory loop.",
-    "answer": "2038290",
+    "type": "word",
+    "prompt": "Enter the single-word answer to break the memory loop.",
+    "answer": [
+      "CYCLE",
+      "LOOP",
+      "REPEAT"
+    ],
     "fullSolutionText": "Loop broken. You’ve escaped the cycle of memory."
   },
   {

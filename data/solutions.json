@@ -112,7 +112,7 @@
   {
     "slug": "the-memory-loop",
     "title": "The Memory Loop",
-    "type": "word",
+    "type": "text",
     "prompt": "Enter the single-word answer to break the memory loop.",
     "answer": [
       "CYCLE",

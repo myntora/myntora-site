@@ -297,5 +297,47 @@
     },
     "version": "2025-09-21b",
     "cta": "Play another case"
+  },
+  {
+    "slug": "forty-eight-hours",
+    "title": "Forty-Eight Hours: A Cyanide Mystery",
+    "type": "text",
+    "prompt": "Who poisoned Ethan Cole?",
+    "answer": [
+      "daniel harper",
+      "harper",
+      "mr harper",
+      "daniel"
+    ],
+    "fullSolutionText": "You pieced together the forensics, receipts, and draft article. Daniel Harper is guilty.",
+    "reveal": {
+      "verdict": "Homicide by Daniel Harper",
+      "motive": "To prevent Ethan Cole from publishing an exposé that would destroy Harper & Cole Technologies and expose fraudulent supplement ties.",
+      "method": "Harper tampered with a bottle of 'Vitamin Boost – Energy Formula,' disguising it with a counterfeit label and ensuring Ethan consumed it within 48 hours.",
+      "evidence": [
+        "Draft article directly names Harper & Cole Technologies in the fraud.",
+        "Lot code K3T-482 from the foil fragment matches the counterfeit bottle.",
+        "Transaction log shows the package delivery under suspicious initials.",
+        "Harper’s message: 'Some doors can’t be closed once opened.'"
+      ],
+      "timeline": [
+        "Sept 19 – Heated argument with Ethan at the office.",
+        "Sept 20 13:20 – Package delivered (Harper orchestrated counterfeit supplement).",
+        "Sept 20 evening – Ethan consumed supplement believing it was legitimate.",
+        "Sept 21 morning – Ethan collapses, later reports his own murder."
+      ],
+      "epilogue": "You didn’t just name the killer—you reconstructed the fraud, the package tampering, and Harper’s motive. Case closed."
+    },
+    "incorrect": {
+      "generic": "Not quite. Recheck the online order (lot code K3T-482), Harper’s threats, and the draft article evidence.",
+      "bySuspect": {
+        "clara mitchell": "Her brand looks guilty, but the lot code doesn’t match her production. Labels were counterfeit.",
+        "marcus alvarez": "Chemicals fit the profile, but his inventory was intact and alibi supported.",
+        "lena carter": "She had motive from financial strain, but her alibi during the package delivery is solid.",
+        "noah reed": "Almond syrup is a red herring; the poison source came from the counterfeit bottle."
+      }
+    },
+    "version": "2025-09-21a",
+    "cta": "Play another case"
   }
 ]

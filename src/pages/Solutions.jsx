@@ -75,17 +75,28 @@ const ChoiceOutcome = ({ outcome }) => {
 };
 
 
-// --- Verdict outcome form (One Hour Left) ---
-const VerdictForm = ({ cfg, verdictQ1, setVerdictQ1, verdictQ2, setVerdictQ2, verdictOther, setVerdictOther }) => {
-  const { q1, q2 } = cfg;
+const VerdictForm = ({
+  cfg,
+  verdictQ1, setVerdictQ1,
+  verdictQ2, setVerdictQ2,
+  verdictOther, setVerdictOther
+}) => {
+  const q1 = cfg?.q1;
+  const q2 = cfg?.q2; // opsiyonel
+
+  if (!q1) return null;
+
   return (
     <div className="verdict-form">
-      <p className="solution-prompt">{q1.prompt}</p>
+      {/* Q1 (zorunlu) */}
+      {typeof q1.prompt === 'string' && (
+        <p className="solution-prompt">{q1.prompt}</p>
+      )}
+
       <div className="verdict-q1">
-        {q1.options.map(opt => (
+        {(Array.isArray(q1.options) ? q1.options : []).map((opt) => (
           <label key={opt} className="verdict-radio">
             <span>{opt}</span>
-
             <input
               type="radio"
               name="verdict-q1"
@@ -97,27 +108,37 @@ const VerdictForm = ({ cfg, verdictQ1, setVerdictQ1, verdictQ2, setVerdictQ2, ve
         ))}
       </div>
 
-      <p className="solution-prompt">{q2.prompt}</p>
-      <select
-        className="verdict-select"
-        value={verdictQ2}
-        onChange={(e) => setVerdictQ2(e.target.value)}
-      >
-        <option value="">Choose a suspect</option>
-        {q2.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-      </select>
+      {/* Q2 (varsa) */}
+      {q2 && (
+        <>
+          {typeof q2.prompt === 'string' && (
+            <p className="solution-prompt">{q2.prompt}</p>
+          )}
+          <select
+            className="verdict-select"
+            value={verdictQ2}
+            onChange={(e) => setVerdictQ2(e.target.value)}
+          >
+            <option value="">Choose a suspect</option>
+            {(Array.isArray(q2.options) ? q2.options : []).map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
 
-      {verdictQ2 === 'Other' && (
-        <input
-          type="text"
-          placeholder="Type the name…"
-          value={verdictOther}
-          onChange={(e) => setVerdictOther(e.target.value)}
-        />
+          {verdictQ2 === 'Other' && (
+            <input
+              type="text"
+              placeholder="Type the name…"
+              value={verdictOther}
+              onChange={(e) => setVerdictOther(e.target.value)}
+            />
+          )}
+        </>
       )}
     </div>
   );
 };
+
 
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
@@ -158,17 +179,21 @@ const Solutions = () => {
   const handleSubmit = () => {
     if (!activeSolution) return;
 
-    // ------ VERDICT MODE ------
     if (activeSolution.type === 'verdict' && activeSolution.verdict) {
-      const { q1, q2 } = activeSolution.verdict;
+      const q1 = activeSolution.verdict.q1;
+      const q2 = activeSolution.verdict.q2; // opsiyonel
 
-      const ansQ1 = normalize(q1.answer);
-      const ansQ2 = normalize(q2.answer);
-
+      const ansQ1 = normalize(q1?.answer);
       const userQ1 = normalize(verdictQ1);
-      const userQ2 = normalize(verdictQ2 === 'Other' ? verdictOther : verdictQ2);
 
-      const ok = userQ1 === ansQ1 && userQ2 === ansQ2;
+      let ok = userQ1 === ansQ1;
+
+      if (q2) {
+        const ansQ2 = normalize(q2.answer);
+        const userQ2 = normalize(verdictQ2 === 'Other' ? verdictOther : verdictQ2);
+        ok = ok && (userQ2 === ansQ2);
+      }
+
       setIsCorrect(ok);
 
       if (ok && activeSolution.redirectUrl) {
@@ -179,7 +204,7 @@ const Solutions = () => {
       return;
     }
 
-    // ------ CHOICE MODE ------
+
     if (activeSolution.type === 'choice' && activeSolution.outcomes) {
       setIsCorrect(true);
       return;

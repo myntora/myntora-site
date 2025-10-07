@@ -155,9 +155,9 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/data/solutions.json')
+    fetch(((process.env.PUBLIC_URL) || '') + '/data/solutions.json?v=20251008', { cache: 'no-store' })
       .then(res => res.json())
-      .then(data => setSolutions(data))
+      .then(data => setSolutions(Array.isArray(data) ? data : []))
       .catch(err => console.error("Failed to load solutions.json", err));
   }, []);
   function getTargetedHint(solution, guessRaw) {
@@ -327,7 +327,7 @@ const Solutions = () => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}>
                 <option value="">Choose an option</option>
-                {activeSolution.options.map((opt, i) => (
+                {(Array.isArray(activeSolution.options) ? activeSolution.options : []).map((opt, i) => (
                   <option key={i} value={opt}>{opt}</option>
                 ))}
               </select>

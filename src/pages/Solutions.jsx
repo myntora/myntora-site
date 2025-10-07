@@ -1,36 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import './Solutions.css';
 
-// --- Choice outcome renderer for structured outcomes (Room 103) ---
 const ChoiceOutcome = ({ outcome }) => {
-  if (!outcome) return null;
-  const { title, profile, reasoning, contradictions, closing } = outcome;
+  if (!outcome || typeof outcome !== 'object') return null;
+
+  // Eski ve yeni şemayı birlikte destekle
+  const verdict =
+    typeof outcome.verdictLabel === 'string'
+      ? outcome.verdictLabel
+      : typeof outcome.title === 'string'
+        ? outcome.title
+        : '';
+
+  const profileLabel =
+    outcome && outcome.profile && typeof outcome.profile.label === 'string'
+      ? outcome.profile.label
+      : '';
+
+  const profileDesc =
+    outcome && outcome.profile && typeof outcome.profile.description === 'string'
+      ? outcome.profile.description
+      : '';
+
+  const empath = typeof outcome.empath === 'string' ? outcome.empath : '';
+
+  const reasoning = Array.isArray(outcome.reasoning) ? outcome.reasoning : [];
+  const contradictions = Array.isArray(outcome.contradictions) ? outcome.contradictions : [];
+
+  const closing =
+    typeof outcome.closing === 'string'
+      ? outcome.closing
+      : typeof outcome.footer === 'string'
+        ? outcome.footer
+        : '';
 
   return (
     <div className="choice-outcome">
-      {title && <h3 style={{ marginTop: 8 }}>{title}</h3>}
+      {verdict && <p><em>Your Verdict:</em> {verdict}</p>}
 
-      {profile && (
+      {(profileLabel || profileDesc || empath) && (
         <div style={{ margin: '8px 0 12px' }}>
-          <div style={{ fontWeight: 600 }}>{profile.label}</div>
-          <div style={{ opacity: 0.9 }}>{profile.description}</div>
+          {profileLabel && <div style={{ fontWeight: 600 }}>{profileLabel}</div>}
+          {profileDesc && <div style={{ opacity: 0.9 }}>{profileDesc}</div>}
+          {empath && (
+            <>
+              <div style={{ fontWeight: 600, marginTop: 10 }}>Empath</div>
+              <div style={{ opacity: 0.9 }}>{empath}</div>
+            </>
+          )}
         </div>
       )}
 
-      {Array.isArray(reasoning) && reasoning.length > 0 && (
+      {reasoning.length > 0 && (
         <div style={{ marginBottom: 12 }}>
           <strong>Reasoning</strong>
           <ul style={{ marginTop: 6 }}>
-            {reasoning.map((r, i) => <li key={i}>{r}</li>)}
+            {reasoning.map((r, i) => <li key={i}>{String(r)}</li>)}
           </ul>
         </div>
       )}
 
-      {Array.isArray(contradictions) && contradictions.length > 0 && (
+      {contradictions.length > 0 && (
         <div style={{ marginBottom: 12 }}>
           <strong>Contradictions</strong>
           <ul style={{ marginTop: 6 }}>
-            {contradictions.map((c, i) => <li key={i}>{c}</li>)}
+            {contradictions.map((c, i) => <li key={i}>{String(c)}</li>)}
           </ul>
         </div>
       )}
@@ -39,6 +73,7 @@ const ChoiceOutcome = ({ outcome }) => {
     </div>
   );
 };
+
 
 // --- Verdict outcome form (One Hour Left) ---
 const VerdictForm = ({ cfg, verdictQ1, setVerdictQ1, verdictQ2, setVerdictQ2, verdictOther, setVerdictOther }) => {
@@ -290,37 +325,44 @@ const Solutions = () => {
               <>
                 <div className="correct">✅ Correct! You solved it.</div>
 
-                {/* Minimal metin (eski alan) */}
-                {activeSolution.fullSolutionText && (
+                {typeof activeSolution.fullSolutionText === 'string' && (
                   <div className="solution-reveal">
                     <p>{activeSolution.fullSolutionText}</p>
                   </div>
                 )}
 
-                {/* Zengin final (yeni reveal alanı) */}
-                {activeSolution.reveal && (
+                {activeSolution.reveal && typeof activeSolution.reveal === 'object' && (
                   <div className="solution-reveal">
-                    {activeSolution.reveal.verdict && <p><strong>Verdict:</strong> {activeSolution.reveal.verdict}</p>}
-                    {activeSolution.reveal.motive && <p><strong>Motive:</strong> {activeSolution.reveal.motive}</p>}
-                    {activeSolution.reveal.method && <p><strong>Method:</strong> {activeSolution.reveal.method}</p>}
+                    {typeof activeSolution.reveal.verdict === 'string' && (
+                      <p><strong>Verdict:</strong> {activeSolution.reveal.verdict}</p>
+                    )}
+                    {typeof activeSolution.reveal.motive === 'string' && (
+                      <p><strong>Motive:</strong> {activeSolution.reveal.motive}</p>
+                    )}
+                    {typeof activeSolution.reveal.method === 'string' && (
+                      <p><strong>Method:</strong> {activeSolution.reveal.method}</p>
+                    )}
 
                     {Array.isArray(activeSolution.reveal.evidence) && activeSolution.reveal.evidence.length > 0 && (
                       <>
                         <p><strong>Key Evidence</strong></p>
-                        <ul>{activeSolution.reveal.evidence.map((e, i) => <li key={i}>{e}</li>)}</ul>
+                        <ul>{activeSolution.reveal.evidence.map((e, i) => <li key={i}>{String(e)}</li>)}</ul>
                       </>
                     )}
 
                     {Array.isArray(activeSolution.reveal.timeline) && activeSolution.reveal.timeline.length > 0 && (
                       <>
                         <p><strong>Timeline</strong></p>
-                        <ul>{activeSolution.reveal.timeline.map((t, i) => <li key={i}>{t}</li>)}</ul>
+                        <ul>{activeSolution.reveal.timeline.map((t, i) => <li key={i}>{String(t)}</li>)}</ul>
                       </>
                     )}
 
-                    {activeSolution.reveal.epilogue && <p style={{ fontStyle: 'italic' }}>{activeSolution.reveal.epilogue}</p>}
+                    {typeof activeSolution.reveal.epilogue === 'string' && (
+                      <p style={{ fontStyle: 'italic' }}>{activeSolution.reveal.epilogue}</p>
+                    )}
                   </div>
                 )}
+
               </>
             )}
 

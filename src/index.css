@@ -7,8 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  background-image: url('../public/type-3.png');
-  /* Doğru kullanım */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

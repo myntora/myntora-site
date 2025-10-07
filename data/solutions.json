@@ -38,67 +38,33 @@
   {
     "slug": "room-103",
     "title": "Room 103",
-    "type": "choice",
-    "prompt": "Was it a suicide or a murder?",
-    "options": [
-      "Suicide",
-      "Murder",
-      "Undetermined"
-    ],
-    "answer": null,
-    "outcomes": {
-      "Suicide": {
-        "title": "Your Verdict: Suicide",
-        "profile": {
-          "label": "Empath",
-          "description": "You read the room by feeling it. You center inner pain and context before suspicion."
-        },
-        "reasoning": [
-          "Documented depressive state (Julia Bennett’s statement).",
-          "Torn note: “He lied to me. I can’t…” — unfinished but emotionally charged.",
-          "Multiple unanswered calls to the partner between 02:14–03:05."
+    "type": "verdict",
+    "prompt": "Submit your verdict for Room 103.",
+    "verdict": {
+      "q1": {
+        "prompt": "Given the evidence, is the death a:",
+        "options": [
+          "Suicide",
+          "Murder",
+          "Undetermined"
         ],
-        "contradictions": [
-          "Foreign fingerprints on the wine bottle.",
-          "Unidentified male silhouette in the lobby (01:58 A.M.).",
-          "Possible argument near Room 103 around 02:30 A.M."
-        ],
-        "closing": "Your choice shows empathy and psychological sensitivity. Yet some physical clues remain unresolved."
-      },
-      "Murder": {
-        "title": "Your Verdict: Murder",
-        "profile": {
-          "label": "Skeptic",
-          "description": "You trust forensics and patterns over words. You question narratives until the evidence aligns."
-        },
-        "reasoning": [
-          "Foreign male DNA under the victim’s fingernails.",
-          "Unidentified fingerprints (secondary handler) on the wine bottle.",
-          "Witness + CCTV alignment: a male presence trailing the victim."
-        ],
-        "contradictions": [
-          "Depression, debts, and despair in recent weeks.",
-          "The torn note could foreshadow self-harm.",
-          "Staggered ingestion may include voluntary doses."
-        ],
-        "closing": "Your choice shows a rigorous, evidence-driven mind. Still, you may be under-weighting Clara’s inner state."
-      },
-      "Undetermined": {
-        "title": "Your Verdict: Undetermined",
-        "profile": {
-          "label": "Realist",
-          "description": "You accept ambiguity when the balance of clues resists a clean answer."
-        },
-        "reasoning": [
-          "Internal factors (despair) and external traces (DNA, prints) conflict.",
-          "Locked-room context without clear forced entry.",
-          "Timing inconsistencies in toxicology."
-        ],
-        "contradictions": [
-          "Either narrative requires assumptions not fully supported by the file."
-        ],
-        "closing": "Caution and patience are strengths. Many real cases close on this edge of doubt."
+        "answer": "Suicide"
       }
+    },
+    "fullSolutionText": "You read the context correctly. The evidence most consistently supports suicide.",
+    "reveal": {
+      "verdict": "Final: Suicide",
+      "evidence": [
+        "Documented depressive state (Julia Bennett’s statement).",
+        "Torn note: “He lied to me. I can’t…” — unfinished but emotionally charged.",
+        "Multiple unanswered calls to the partner between 02:14–03:05."
+      ],
+      "timeline": [
+        "~01:58 A.M. – Unidentified male silhouette in the lobby (not confirmed as contact).",
+        "02:14–03:05 – Repeated unanswered calls to the partner.",
+        "Scene shows ingestion pattern consistent with self-harm."
+      ],
+      "epilogue": "Some physical clues (foreign prints, silhouette) remain unresolved, but do not outweigh the primary context."
     }
   },
   {

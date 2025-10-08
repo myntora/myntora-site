@@ -283,7 +283,7 @@ const Solutions = () => {
         <div className="solution-modal-backdrop">
           <div className="solution-modal">
             <h2>{activeSolution.title}</h2>
-            <p className="solution-prompt">{String(q2?.prompt ?? '')}</p>
+            <p className="solution-prompt">{activeSolution.prompt}</p>
 
             {activeSolution.type === 'verdict' && activeSolution.verdict && (
               <VerdictForm

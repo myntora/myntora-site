@@ -4,7 +4,6 @@ import './Solutions.css';
 const ChoiceOutcome = ({ outcome }) => {
   if (!outcome || typeof outcome !== 'object') return null;
 
-  // Eski ve yeni şemayı birlikte destekle
   const verdict =
     typeof outcome.verdictLabel === 'string'
       ? outcome.verdictLabel
@@ -74,7 +73,6 @@ const ChoiceOutcome = ({ outcome }) => {
   );
 };
 
-
 const VerdictForm = ({
   cfg,
   verdictQ1, setVerdictQ1,
@@ -82,13 +80,15 @@ const VerdictForm = ({
   verdictOther, setVerdictOther
 }) => {
   const q1 = cfg?.q1;
-  const q2 = cfg?.q2; // opsiyonel
+  const q2 = cfg?.q2;
 
   if (!q1) return null;
 
+  const showQ2 = verdictQ1 === 'Murder' && !!q2;
+
   return (
     <div className="verdict-form">
-      {/* Q1 (zorunlu) */}
+      {/* Q1 */}
       {typeof q1.prompt === 'string' && (
         <p className="solution-prompt">{q1.prompt}</p>
       )}
@@ -102,15 +102,24 @@ const VerdictForm = ({
               name="verdict-q1"
               value={opt}
               checked={verdictQ1 === opt}
-              onChange={(e) => setVerdictQ1(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setVerdictQ1(val);
+                if (val !== 'Murder') {
+                  setVerdictQ2('');
+                  setVerdictOther('');
+                }
+              }}
             />
           </label>
         ))}
       </div>
-      {q2 && typeof q2.prompt === 'string' && (
+
+      {/* Q2 (only if Murder) */}
+      {showQ2 && typeof q2.prompt === 'string' && (
         <p className="solution-prompt">{q2.prompt}</p>
       )}
-      {q2 && Array.isArray(q2.options) && (
+      {showQ2 && Array.isArray(q2.options) && (
         <select
           className="verdict-select"
           value={verdictQ2}
@@ -122,7 +131,7 @@ const VerdictForm = ({
           ))}
         </select>
       )}
-      {q2 && verdictQ2 === 'Other' && (
+      {showQ2 && verdictQ2 === 'Other' && (
         <input
           type="text"
           placeholder="Type the name…"
@@ -134,12 +143,11 @@ const VerdictForm = ({
   );
 };
 
-
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
   const [activeSolution, setActiveSolution] = useState(null);
   const [userInput, setUserInput] = useState('');
-  const [isCorrect, setIsCorrect] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(null); // true / false / null
   const [hint, setHint] = useState('');
   const [caseSel, setCaseSel] = useState({});
   const [caseErr, setCaseErr] = useState({});
@@ -150,12 +158,29 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    fetch(((process.env.PUBLIC_URL) || '') + '/data/solutions.json?v=20251008', { cache: 'no-store' })
+    fetch(((process.env.PUBLIC_URL) || '') + '/data/solutions.json?v=20251008b', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => setSolutions(Array.isArray(data) ? data : []))
       .catch(err => console.error("Failed to load solutions.json", err));
   }, []);
+
+  function normalize(v) {
+    return (v || '')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[^\p{Letter}\p{Number}\s]/gu, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function getTargetedHintForVerdict(solution, suspectLabel) {
+    const bySus = solution?.incorrect?.bySuspect || {};
+    if (suspectLabel && bySus[suspectLabel]) return bySus[suspectLabel];
+    return solution?.incorrect?.generic || 'Incorrect. Try again.';
+  }
+
   function getTargetedHint(solution, guessRaw) {
+    // text/code için eski yardımcı
     const g = normalize(guessRaw);
     const bySus = solution?.incorrect?.bySuspect || {};
     for (const key of Object.keys(bySus)) {
@@ -163,48 +188,59 @@ const Solutions = () => {
     }
     return solution?.incorrect?.generic || 'Incorrect. Try again.';
   }
-  function normalize(v) {
-    return (v || '')
-      .toLowerCase()
-      .normalize('NFKD')
-      .replace(/[^\p{Letter}\p{Number}\s]/gu, '') // noktalama/aksan temizle
-      .replace(/\s+/g, ' ')                        // çoklu boşluk → tek boşluk
-      .trim();
-  }
-  const handleSubmit = () => {
+
+  const handleSubmit = (e) => {
+    if (e) e.preventDefault();
     if (!activeSolution) return;
 
+    // ----- VERDICT MODE -----
     if (activeSolution.type === 'verdict' && activeSolution.verdict) {
       const q1 = activeSolution.verdict.q1;
-      const q2 = activeSolution.verdict.q2; // opsiyonel
-
-      const ansQ1 = normalize(q1?.answer);
+      const q2 = activeSolution.verdict.q2;
       const userQ1 = normalize(verdictQ1);
+      const ansQ1 = normalize(q1?.answer);
 
-      let ok = userQ1 === ansQ1;
-
-      if (q2) {
-        const ansQ2 = normalize(q2.answer);
-        const userQ2 = normalize(verdictQ2 === 'Other' ? verdictOther : verdictQ2);
-        ok = ok && (userQ2 === ansQ2);
+      // q1 yanlışsa direkt yanlış
+      if (userQ1 !== ansQ1) {
+        setIsCorrect(false);
+        setHint(activeSolution?.incorrect?.generic || 'Incorrect. Try again.');
+        return;
       }
 
-      setIsCorrect(ok);
+      // q1 doğru (Murder). q2 zorunlu → doğru katili kontrol et
+      if (q2?.answer) {
+        if (!verdictQ2) {
+          setIsCorrect(false);
+          setHint('Please select a suspect.');
+          return;
+        }
 
-      if (ok && activeSolution.redirectUrl) {
-        setTimeout(() => {
-          window.location.href = activeSolution.redirectUrl;
-        }, 1200);
+        const userQ2 = verdictQ2 === 'Other' ? (verdictOther || '').trim() : verdictQ2;
+        const ok2 = normalize(userQ2) === normalize(q2.answer);
+
+        setIsCorrect(ok2);
+        if (!ok2) {
+          setHint(getTargetedHintForVerdict(activeSolution, verdictQ2));
+        } else {
+          // Doğruysa reveal/fullSolutionText ekrana zaten aşağıda düşecek
+          setHint('');
+        }
+        return;
       }
+
+      // (q2 tanımlı değilse) sadece q1 doğruya göre karar ver
+      setIsCorrect(true);
+      setHint('');
       return;
     }
 
-
+    // ----- CHOICE MODE -----
     if (activeSolution.type === 'choice' && activeSolution.outcomes) {
       setIsCorrect(true);
       return;
     }
-    // ------ CASE-MATCHER MODE ------
+
+    // ----- CASE-MATCHER MODE -----
     if (activeSolution?.type === 'case-matcher') {
       const items = activeSolution.cases || [];
       const errs = {};
@@ -220,10 +256,11 @@ const Solutions = () => {
 
       setCaseErr(errs);
       setIsCorrect(allOk);
+      if (!allOk) setHint('One or more matches are incorrect.');
       return;
     }
 
-    // ------ TEXT/CODE MODE ------
+    // ----- TEXT/CODE MODE -----
     const correctAnswer = activeSolution.answer;
     const inputAnswer = normalize(userInput);
 
@@ -278,7 +315,6 @@ const Solutions = () => {
         ))}
       </div>
 
-
       {activeSolution && (
         <div className="solution-modal-backdrop">
           <div className="solution-modal">
@@ -296,6 +332,7 @@ const Solutions = () => {
                 setVerdictOther={setVerdictOther}
               />
             )}
+
             {activeSolution?.type === 'case-matcher' && (
               <div className="caseMatcher">
                 {(activeSolution.cases || []).map(cs => (
@@ -339,8 +376,12 @@ const Solutions = () => {
               />
             )}
 
-            <button onClick={handleSubmit}>Submit</button>
+            <div className="actions">
+              <button onClick={handleSubmit}>Submit</button>
+              <button className="close-btn" onClick={handleClose}>Close</button>
+            </div>
 
+            {/* ✅ Correct */}
             {isCorrect === true && (
               <>
                 <div className="correct">✅ Correct! You solved it.</div>
@@ -382,15 +423,20 @@ const Solutions = () => {
                     )}
                   </div>
                 )}
-
               </>
             )}
 
-
+            {/* ❌ Incorrect */}
             {isCorrect === false && (
               <p className="incorrect">❌ {hint || 'Incorrect. Try again.'}</p>
             )}
 
+            {/* ◻️ Neutral (kullanılmıyor ama API uyumu için bırakıldı) */}
+            {isCorrect === null && hint && (
+              <p className="neutral">{hint}</p>
+            )}
+
+            {/* Choice outcome */}
             {activeSolution.type === 'choice' &&
               isCorrect === true &&
               activeSolution.outcomes &&
@@ -398,13 +444,9 @@ const Solutions = () => {
               activeSolution.outcomes[userInput] && (
                 <ChoiceOutcome outcome={activeSolution.outcomes[userInput]} />
               )}
-
-            <button className="close-btn" onClick={handleClose}>Close</button>
           </div>
         </div>
       )}
-
-
     </div>
   );
 };

@@ -48,23 +48,44 @@
           "Murder",
           "Undetermined"
         ],
-        "answer": "Suicide"
+        "answer": "Murder"
+      },
+      "q2": {
+        "prompt": "If you believe it’s a murder, who is the killer?",
+        "options": [
+          "Daniel Carter (Partner)",
+          "Unknown Male (Lobby Silhouette)",
+          "Hotel Staff",
+          "Other"
+        ],
+        "answer": "Daniel Carter (Partner)"
       }
     },
-    "fullSolutionText": "You read the context correctly. The evidence most consistently supports suicide.",
+    "incorrect": {
+      "generic": "That reading misses key contradictions in the scene and statements. Re-evaluate access, motive, and the ingestion setup.",
+      "bySuspect": {
+        "Unknown Male (Lobby Silhouette)": "The silhouette was never forensically tied to the room—no prints, no phone overlap, no verified contact. It’s a tempting red herring.",
+        "Hotel Staff": "Shift logs and access records place staff on routine rounds; no staff biometrics or prints match the wine bottle or glassware.",
+        "Other": "No evidence-supported suspect fits better than the partner. If you name one, anchor it to access and a plausible method."
+      }
+    },
+    "fullSolutionText": "You followed the strongest line: with means, motive, and opportunity converging, the partner is the most consistent culprit.",
     "reveal": {
-      "verdict": "Final: Suicide",
+      "verdict": "Final: Murder",
+      "motive": "Jealousy and perceived betrayal after escalating conflict; control dynamics visible in recent messages.",
+      "method": "Poisoned drink staged as a voluntary ingestion. The setup mimics self-harm but fails on access and sequencing details.",
       "evidence": [
-        "Documented depressive state (Julia Bennett’s statement).",
-        "Torn note: “He lied to me. I can’t…” — unfinished but emotionally charged.",
-        "Multiple unanswered calls to the partner between 02:14–03:05."
+        "Message history shows escalating arguments and possessive language from the partner.",
+        "Partner had unsupervised access to the victim’s belongings and room-adjacent window of time.",
+        "Glassware/serving order inconsistent with solitary late-night drinking pattern.",
+        "Phone silence and delayed responses from the partner during the critical window."
       ],
       "timeline": [
-        "~01:58 A.M. – Unidentified male silhouette in the lobby (not confirmed as contact).",
-        "02:14–03:05 – Repeated unanswered calls to the partner.",
-        "Scene shows ingestion pattern consistent with self-harm."
+        "≈ 01:40–01:55 A.M. — Contact window where access to room was most plausible.",
+        "≈ 02:14–03:05 — Multiple unanswered calls to the partner (phone on silent per his claim).",
+        "Discovery — Staged scene suggests voluntary ingestion, but sequencing contradicts a true solo act."
       ],
-      "epilogue": "Some physical clues (foreign prints, silhouette) remain unresolved, but do not outweigh the primary context."
+      "epilogue": "Alternative leads (e.g., the lobby silhouette) remain uncorroborated. The partner’s proximity, motive, and the staging inconsistencies point most directly to him."
     }
   },
   {

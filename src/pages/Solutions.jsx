@@ -107,33 +107,28 @@ const VerdictForm = ({
           </label>
         ))}
       </div>
-
-      {/* Q2 (varsa) */}
-      {q2 && (
-        <>
-          {typeof q2.prompt === 'string' && (
-            <p className="solution-prompt">{q2.prompt}</p>
-          )}
-          <select
-            className="verdict-select"
-            value={verdictQ2}
-            onChange={(e) => setVerdictQ2(e.target.value)}
-          >
-            <option value="">Choose a suspect</option>
-            {(Array.isArray(q2.options) ? q2.options : []).map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-
-          {verdictQ2 === 'Other' && (
-            <input
-              type="text"
-              placeholder="Type the name…"
-              value={verdictOther}
-              onChange={(e) => setVerdictOther(e.target.value)}
-            />
-          )}
-        </>
+      {q2 && typeof q2.prompt === 'string' && (
+        <p className="solution-prompt">{q2.prompt}</p>
+      )}
+      {q2 && Array.isArray(q2.options) && (
+        <select
+          className="verdict-select"
+          value={verdictQ2}
+          onChange={(e) => setVerdictQ2(e.target.value)}
+        >
+          <option value="">Choose a suspect</option>
+          {q2.options.map(opt => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
+      )}
+      {q2 && verdictQ2 === 'Other' && (
+        <input
+          type="text"
+          placeholder="Type the name…"
+          value={verdictOther}
+          onChange={(e) => setVerdictOther(e.target.value)}
+        />
       )}
     </div>
   );
@@ -288,7 +283,7 @@ const Solutions = () => {
         <div className="solution-modal-backdrop">
           <div className="solution-modal">
             <h2>{activeSolution.title}</h2>
-            <p className="solution-prompt">{activeSolution.prompt}</p>
+            <p className="solution-prompt">{String(q2?.prompt ?? '')}</p>
 
             {activeSolution.type === 'verdict' && activeSolution.verdict && (
               <VerdictForm

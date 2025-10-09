@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Solutions.css';
-import solutionsData from './solutions.json'
 
 const ChoiceOutcome = ({ outcome }) => {
   if (!outcome || typeof outcome !== 'object') return null;
@@ -163,7 +162,10 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    setSolutions(Array.isArray(solutionsData) ? solutionsData : []);
+    fetch(`${process.env.PUBLIC_URL}/data/solutions.json`)
+      .then(res => res.json())
+      .then(data => setSolutions(Array.isArray(data) ? data : []))
+      .catch(err => console.error("Failed to load solutions.json", err));
   }, []);
 
   function normalize(v) {

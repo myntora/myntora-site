@@ -4,16 +4,13 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Games from './pages/Games';
-import Solutions from './pages/Solutions.jsx';
+import Solutions from './pages/Solutions';
 import './App.css';
 
 
-const BASENAME =
-  process.env.NODE_ENV === 'production' ? '/myntora-site' : '/';
-
 function App() {
   return (
-    <BrowserRouter basename={BASENAME}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

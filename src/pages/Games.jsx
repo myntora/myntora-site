@@ -8,7 +8,7 @@ const Games = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const response = await fetch('/myntora-site/data/games.json');
+        const response = await fetch(`${process.env.PUBLIC_URL}/data/games.json`);
         const data = await response.json();
         setGames(data);
       } catch (error) {

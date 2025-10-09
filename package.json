@@ -2,7 +2,7 @@
   "name": "myntora-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://myntora.github.io/myntora-site",
   "dependencies": {
     "@csstools/normalize.css": "^12.1.1",
     "@testing-library/dom": "^10.4.0",

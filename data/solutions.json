@@ -10,30 +10,53 @@
   {
     "slug": "one-hour-left",
     "title": "One Hour Left",
-    "type": "verdict",
-    "prompt": "Submit your final verdict before midnight.",
-    "verdict": {
-      "q1": {
-        "prompt": "Based on the evidence, is Michael Grant:",
-        "options": [
-          "Guilty",
-          "Innocent"
+    "type": "choice",
+    "prompt": "Detective Unit 4 – You have one hour to decide Michael Grant’s fate. Should the execution proceed?",
+    "options": [
+      "Proceed with Execution (Guilty)",
+      "Issue Emergency Stay (Innocent)"
+    ],
+    "outcomes": {
+      "Proceed with Execution (Guilty)": {
+        "verdictLabel": "You Let Justice Run Its Course",
+        "profile": {
+          "label": "The Realist",
+          "description": "You trust the system more than emotion. Evidence, though imperfect, must hold weight; otherwise, chaos rules."
+        },
+        "reasoning": [
+          "Michael’s fingerprints were found on the door handle.",
+          "The murder weapon was discovered near his residence.",
+          "His closest friend attempted to provide a false alibi.",
+          "No definitive proof of another suspect exists."
         ],
-        "answer": "Innocent"
+        "contradictions": [
+          "Inconsistencies in witness timelines might be coincidence, not conspiracy.",
+          "Digital evidence can be faked, but so can emotion.",
+          "The court already decided; revisiting it risks undermining due process."
+        ],
+        "closing": "You accepted the possibility of imperfection in justice. To you, the law is only as strong as its final verdict, even if it may break a human heart."
       },
-      "q2": {
-        "prompt": "If Innocent, who is the true perpetrator?",
-        "options": [
-          "Julia Carter",
-          "Robert Hayes",
-          "Emily Rhodes",
-          "Other"
+      "Issue Emergency Stay (Innocent)": {
+        "verdictLabel": "You Chose to Halt the Execution",
+        "profile": {
+          "label": "The Empath",
+          "description": "You believe justice must evolve — that mercy and doubt are part of truth, not weakness."
+        },
+        "reasoning": [
+          "Autopsy reports indicate a left-handed killer; Michael is right-handed.",
+          "A blond hair was found in the victim’s hand — does not match her own or Michael’s.",
+          "Julia Carter lied about receiving a call that records prove happened.",
+          "The threatening messages from 'Unknown Contact' suggest another suspect."
         ],
-        "answer": "Julia Carter"
+        "contradictions": [
+          "Delaying justice risks freeing the guilty.",
+          "Evidence of innocence is circumstantial, not conclusive.",
+          "Michael’s emotional composure could be read as guilt or as resignation."
+        ],
+        "closing": "You saved a man’s life — for now. But truth is fragile, and so is time. Mercy may have given him another chance… or delayed the inevitable."
       }
     },
-    "fullSolutionText": "Emergency stay issued. You exonerated Michael and identified the true perpetrator.",
-    "redirectUrl": "https://myntora.github.io/myntora-site/solutions#ohl-resolution"
+    "fullSolutionText": "There is no definitive answer. Only reflection. Your decision shapes not only the ending, but the kind of detective — and person — you are."
   },
   {
     "slug": "room-103",

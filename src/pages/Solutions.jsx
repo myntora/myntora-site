@@ -84,7 +84,11 @@ const VerdictForm = ({
 
   if (!q1) return null;
 
-  const showQ2 = verdictQ1 === 'Murder' && !!q2;
+  const showQ2 = !!q2 && (
+    verdictQ1 === 'Murder' ||
+    verdictQ1 === 'Innocent' ||
+    verdictQ1 === 'Guilty'
+  );
 
   return (
     <div className="verdict-form">

@@ -439,13 +439,17 @@ const Solutions = () => {
             )}
 
             {/* Choice outcome */}
+
             {activeSolution.type === 'choice' &&
               isCorrect === true &&
               activeSolution.outcomes &&
-              userInput &&
-              activeSolution.outcomes[userInput] && (
+              typeof userInput === 'string' &&
+              userInput.trim() !== '' &&
+              activeSolution.outcomes[userInput] &&
+              typeof activeSolution.outcomes[userInput] === 'object' && (
                 <ChoiceOutcome outcome={activeSolution.outcomes[userInput]} />
               )}
+
           </div>
         </div>
       )}

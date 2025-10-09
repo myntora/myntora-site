@@ -162,11 +162,18 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    fetch(((process.env.PUBLIC_URL) || '') + '/data/solutions.json?v=20251008b', { cache: 'no-store' })
-      .then(res => res.json())
+    const url = ((process.env.PUBLIC_URL) || '') + '/data/solutions.json?v=20251008b';
+    console.log("Loading solutions from:", url);
+
+    fetch(url, { cache: 'no-store' })
+      .then(res => {
+        if (!res.ok) throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
+        return res.json();
+      })
       .then(data => setSolutions(Array.isArray(data) ? data : []))
-      .catch(err => console.error("Failed to load solutions.json", err));
+      .catch(err => console.error("❌ Failed to load solutions.json:", err));
   }, []);
+
 
   function normalize(v) {
     return (v || '')

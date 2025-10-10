@@ -162,6 +162,7 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
+    console.log(`${process.env.PUBLIC_URL}/data/solutions.json`)
     fetch(`${process.env.PUBLIC_URL}/data/solutions.json`)
       .then(res => res.json())
       .then(data => setSolutions(Array.isArray(data) ? data : []))
@@ -442,15 +443,14 @@ const Solutions = () => {
 
             {/* Choice outcome */}
 
-            {activeSolution.type === 'choice' &&
-              isCorrect === true &&
-              activeSolution.outcomes &&
-              typeof userInput === 'string' &&
-              userInput.trim() !== '' &&
-              activeSolution.outcomes[userInput] &&
-              typeof activeSolution.outcomes[userInput] === 'object' && (
-                <ChoiceOutcome outcome={activeSolution.outcomes[userInput]} />
-              )}
+            {activeSolution.type === 'choice' && isCorrect === true && (
+              (() => {
+                const outcomeObj =
+                  activeSolution?.outcomes?.[userInput] ?? null;
+                if (!outcomeObj || typeof outcomeObj !== 'object') return null;
+                return <ChoiceOutcome outcome={outcomeObj} />;
+              })()
+            )}
 
           </div>
         </div>

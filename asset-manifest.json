@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.802505bc.css",
-    "main.js": "/static/js/main.55b4888c.js",
-    "static/js/453.3fe9c6d5.chunk.js": "/static/js/453.3fe9c6d5.chunk.js",
-    "index.html": "/index.html",
-    "main.802505bc.css.map": "/static/css/main.802505bc.css.map",
-    "main.55b4888c.js.map": "/static/js/main.55b4888c.js.map",
-    "453.3fe9c6d5.chunk.js.map": "/static/js/453.3fe9c6d5.chunk.js.map"
+    "main.css": "/myntora-site/static/css/main.154341bc.css",
+    "main.js": "/myntora-site/static/js/main.c88057fa.js",
+    "static/js/453.3fe9c6d5.chunk.js": "/myntora-site/static/js/453.3fe9c6d5.chunk.js",
+    "index.html": "/myntora-site/index.html",
+    "main.154341bc.css.map": "/myntora-site/static/css/main.154341bc.css.map",
+    "main.c88057fa.js.map": "/myntora-site/static/js/main.c88057fa.js.map",
+    "453.3fe9c6d5.chunk.js.map": "/myntora-site/static/js/453.3fe9c6d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.802505bc.css",
-    "static/js/main.55b4888c.js"
+    "static/css/main.154341bc.css",
+    "static/js/main.c88057fa.js"
   ]
 }

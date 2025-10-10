@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Solutions.css';
 
+
+console.log("Worked")
+
+console.log(`${process.env.PUBLIC_URL}/data/solutions.json`)
+
 const ChoiceOutcome = ({ outcome }) => {
   if (!outcome || typeof outcome !== 'object') return null;
 
@@ -146,7 +151,6 @@ const VerdictForm = ({
     </div>
   );
 };
-console.log(`${process.env.PUBLIC_URL}/data/solutions.json`)
 
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);

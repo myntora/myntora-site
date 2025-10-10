@@ -146,6 +146,7 @@ const VerdictForm = ({
     </div>
   );
 };
+console.log(`${process.env.PUBLIC_URL}/data/solutions.json`)
 
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
@@ -162,7 +163,6 @@ const Solutions = () => {
   const [verdictOther, setVerdictOther] = useState('');
 
   useEffect(() => {
-    console.log(`${process.env.PUBLIC_URL}/data/solutions.json`)
     fetch(`${process.env.PUBLIC_URL}/data/solutions.json`)
       .then(res => res.json())
       .then(data => setSolutions(Array.isArray(data) ? data : []))

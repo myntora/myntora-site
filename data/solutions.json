@@ -353,13 +353,13 @@
   {
     "slug": "the-fifth-witness",
     "title": "The Fifth Witness",
-    "type": "verdict",
+    "type": "text",
     "prompt": "Who was the fifth witness?",
     "answer": [
       "mercer",
       "detective mercer",
       "d.r. mercer"
     ],
-    "fullSolutionText": "Correct. The fifth witness was Detective Mercer himself — the man who erased his own memory. Every statement you read was a fragment of his mind trying to remember that night."
+    "fullSolutionText": "You found the truth. The fifth witness never existed — he was the detective who wrote the reports, signed the autopsy, and hid behind his own handwriting. Detective Mercer was at the scene, his memory split into four voices so he could live with what he’d done. The lavender on her hands, the reflection in the glass, the erased minutes... were all his. He didn’t remember her death — he remembered the guilt."
   }
 ]

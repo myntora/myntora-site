@@ -349,5 +349,17 @@
     },
     "version": "2025-09-21a",
     "cta": "Play another case"
+  },
+  {
+    "slug": "the-fifth-witness",
+    "title": "The Fifth Witness",
+    "type": "text",
+    "prompt": "Who was the fifth witness?",
+    "answer": [
+      "mercer",
+      "detective mercer",
+      "d.r. mercer"
+    ],
+    "fullSolutionText": "Correct. The fifth witness was Detective Mercer himself — the man who erased his own memory. Every statement you read was a fragment of his mind trying to remember that night."
   }
 ]

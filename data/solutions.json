@@ -361,5 +361,88 @@
       "d.r. mercer"
     ],
     "fullSolutionText": "You found the truth. The fifth witness never existed — he was the detective who wrote the reports, signed the autopsy, and hid behind his own handwriting. Detective Mercer was at the scene, his memory split into four voices so he could live with what he’d done. The lavender on her hands, the reflection in the glass, the erased minutes... were all his. He didn’t remember her death — he remembered the guilt."
+  },
+  {
+    "slug": "five-hours-missing",
+    "title": "Five Hours Missing",
+    "type": "choice",
+    "prompt": "After reviewing all the evidence, what do you believe truly happened during the missing five hours?",
+    "options": [
+      "David Mercer killed Emily Carver.",
+      "Dr. L. Moreau manipulated David’s mind.",
+      "Emily Carver staged her own death.",
+      "A third unknown person orchestrated the entire event."
+    ],
+    "outcomes": {
+      "David Mercer killed Emily Carver.": {
+        "verdictLabel": "You Followed the Obvious Trail",
+        "profile": {
+          "label": "The Pragmatist",
+          "description": "You trust evidence over theory — blood, fingerprints, and motive are enough for you."
+        },
+        "reasoning": [
+          "Mercer’s fingerprints and the victim’s blood were undeniable.",
+          "The glass fibers and timeline align with direct confrontation.",
+          "His fragmented memory could be repression rather than manipulation."
+        ],
+        "contradictions": [
+          "GPS tampering suggests external interference.",
+          "No defensive wounds on Emily weaken the struggle theory."
+        ],
+        "closing": "You saw a crime of passion, not conspiracy — perhaps that’s how justice prefers it."
+      },
+      "Dr. L. Moreau manipulated David’s mind.": {
+        "verdictLabel": "You Chose the Psychological Path",
+        "profile": {
+          "label": "The Analyst",
+          "description": "You see control and suggestion behind chaos — truth lies in manipulation, not memory."
+        },
+        "reasoning": [
+          "Repeated hypnosis sessions tie directly to David’s blackout.",
+          "Voice interference at timestamp 14:34 supports tampering with consciousness.",
+          "Dr. Moreau’s name appears in both autopsy and therapy records — too convenient."
+        ],
+        "contradictions": [
+          "No material gain or motive for Moreau is clearly established.",
+          "If she orchestrated it, why leave evidence pointing to herself?"
+        ],
+        "closing": "You believe the mind is the ultimate crime scene — and Dr. Moreau knew how to use it."
+      },
+      "Emily Carver staged her own death.": {
+        "verdictLabel": "You Saw Through the Stage",
+        "profile": {
+          "label": "The Theorist",
+          "description": "You question everything — even death itself. Deception is just another form of control."
+        },
+        "reasoning": [
+          "No soil or water sediment found on Emily’s skin implies she was moved postmortem.",
+          "Sedative dosage was non-lethal — perfect for simulating death.",
+          "Witness statement mentions movement after the supposed time of death."
+        ],
+        "contradictions": [
+          "DNA and blood traces on Mercer were authentic.",
+          "No verified evidence Emily left the area alive."
+        ],
+        "closing": "You believe Emily wrote the ending of her own story — one final act of control."
+      },
+      "A third unknown person orchestrated the entire event.": {
+        "verdictLabel": "You Trusted the Gaps in the Story",
+        "profile": {
+          "label": "The Skeptic",
+          "description": "You see patterns where others see coincidence — for you, absence of evidence is the biggest clue."
+        },
+        "reasoning": [
+          "The palm print at the window didn’t match Mercer or Emily.",
+          "GPS edit detected via external cable input suggests tampering.",
+          "Witness heard the phrase 'She had to see it' — doesn’t match either main suspect’s dialogue."
+        ],
+        "contradictions": [
+          "No known suspect fits the new profile.",
+          "Lack of physical evidence makes this theory circumstantial."
+        ],
+        "closing": "You believe a ghost in the system pulled the strings — and everyone else played their part unknowingly."
+      }
+    },
+    "fullSolutionText": "There is no confirmed truth in this case — only the fragments of memory and manipulation left behind. The real mystery is whether what you believe… makes you part of the story."
   }
 ]

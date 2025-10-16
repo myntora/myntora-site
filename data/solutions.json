@@ -444,5 +444,51 @@
       }
     },
     "fullSolutionText": "There is no confirmed truth in this case — only the fragments of memory and manipulation left behind. The real mystery is whether what you believe… makes you part of the story."
+  },
+  {
+    "slug": "trick-or-treat-gone-wrong",
+    "title": "Trick or Treat Gone Wrong",
+    "type": "text",
+    "prompt": "Who murdered Brooke Miller on Halloween night?",
+    "answer": [
+      "noah",
+      "noah price"
+    ],
+    "fullSolutionText": "You uncovered the truth: Noah Price engineered the perfect blackout to silence Brooke Miller — and the town’s forgotten secret.",
+    "reveal": {
+      "verdict": "Homicide by Noah Price",
+      "motive": "To conceal his involvement in the 2022 electrical fire that killed Harold Miller. Brooke had uncovered proof linking him to both incidents.",
+      "method": "Noah manually looped the breaker wiring at 14 Elm Street, causing a planned power outage at 11:45 PM. Under the cover of darkness, he struck Brooke with a blunt object and later staged the 'LIE' pumpkins to frame Claire Young.",
+      "evidence": [
+        "Electrical panel inspection revealed deliberate wire looping matching Noah’s prior maintenance signature.",
+        "Box-cutter residue and matching tool marks from Noah’s kit identified on all three pumpkins.",
+        "DNA from pumpkin stems confirmed Noah’s handling postmortem.",
+        "Doorbell recording contained Noah’s whisper at [0:09] ('Just end it'), verified through 95% voiceprint match.",
+        "Officer Myers’ 2022 case notes referenced identical breaker cut angles from the Miller Sweet Shop fire.",
+        "Tara Jenkins confirmed Brooke obtained the candy recorder from her, which contained fragments exposing Noah’s name."
+      ],
+      "timeline": [
+        "10:30 PM — Pumpkins observed uncarved by witnesses.",
+        "11:15 PM — Brooke argues with Claire: 'You can’t keep lying forever.'",
+        "11:35 PM — Brooke positions pumpkins by the fireplace.",
+        "11:45 PM — Power outage triggered; scream heard seconds later.",
+        "11:47 PM — Brooke found unresponsive; candles still unlit.",
+        "11:56 PM — Officer Myers arrives; Noah calm, near the panel.",
+        "00:12 AM — Forensics log shows Noah’s fingerprints and tool residue on panel box."
+      ],
+      "epilogue": "Noah Price masked his crime beneath the flicker of a Halloween prank. The same man who once 'fixed' the shop wiring that killed Harold Miller ended another Miller life to keep that secret buried. Officer Myers’s silence let him hide a year longer — but every lie leaves its trace, even when carved in pumpkin flesh."
+    },
+    "incorrect": {
+      "generic": "Not quite. Think about who had access to the electrical panel, the technical skill to manipulate the breakers, and a reason to silence Brooke permanently.",
+      "bySuspect": {
+        "claire": "Claire lied, yes — but she was hiding guilt over silence, not murder.",
+        "evan": "Evan’s footage caught the sound of the killer, not his own crime.",
+        "liam": "He set the scene by mistake but never touched the panel.",
+        "tara": "She gave Brooke the candy bag, not the death sentence.",
+        "officer myers": "He protected Noah through negligence, not intent."
+      }
+    },
+    "version": "2025-10-16a",
+    "cta": "Play another case"
   }
 ]

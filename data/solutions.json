@@ -146,11 +146,15 @@
   },
   {
     "slug": "the-lighthouse-keeper",
-    "title": "The Lighthouse Keeper",
+    "title": "The Lighthouse Keeper: Murder at Hollow Point",
     "type": "text",
-    "prompt": "Who was the killer?",
-    "answer": "jack mctavish",
-    "fullSolutionText": "Jack McTavish left more than secrets behind in the storm."
+    "prompt": "Who killed Thomas Hale?",
+    "answer": [
+      "captain edwin marsh",
+      "edwin marsh",
+      "marsh"
+    ],
+    "fullSolutionText": "Captain Edwin Marsh confronted Thomas Hale inside the lighthouse during the storm of November 3rd, 1989. Their long-standing resentment and jealousy over Lydia Hale led to a violent argument. Hale fell from the staircase after being struck during the struggle, hitting the railing before the floor. The dual impact found in the forensic report confirms this. To avoid scandal and protect the town’s reputation, Chief Griggs ordered the death ruled as accidental, and Noah Price manipulated the weather records to erase the crucial 23:10–23:40 window. For decades, Hollow Point lived by silence—its people choosing peace over truth. You’ve uncovered what the sea and the storm tried to bury."
   },
   {
     "slug": "whispers-in-the-conservatory",

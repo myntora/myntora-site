@@ -494,5 +494,17 @@
     },
     "version": "2025-10-16a",
     "cta": "Play another case"
+  },
+  {
+    "slug": "the-last-thanksgiving",
+    "title": "The Last Thanksgiving",
+    "type": "text",
+    "prompt": "Who poisoned Arthur Holloway?",
+    "answer": [
+      "catherine boone",
+      "boone",
+      "catherine"
+    ],
+    "fullSolutionText": "Catherine Boone poisoned Arthur Holloway. Years ago, Arthur’s company, Holloway Holdings, covered up a factory accident that killed Daniel Boone — Catherine’s husband. The case was buried, and Arthur lived with that secret while Catherine raised their son, Liam, in silence. When Arthur decided to revise his will to publicly make amends, Catherine knew his confession would come too late to matter. On Thanksgiving night, she poured his final glass of wine, laced with arsenic, and left him to the same quiet fate he had given her family years before. She did not act out of rage, but out of a cold, deliberate sense of balance — the kind of justice Arthur once denied others."
   }
 ]

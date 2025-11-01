@@ -131,5 +131,12 @@
         "description": "A Halloween night turns deadly when a harmless party becomes a murder scene. Six witnesses, eerie clues, and the truth buried under the word 'LIE'. Can you uncover who cut the power before midnight?",
         "imageUrl": "/myntora-site/images/halloween.png",
         "etsyLink": "https://www.etsy.com/listing/4388222062/trick-or-treat-gone-wrong-o-halloween?ref=shop_home_active_1&pro=1&sts=1&dd=1"
+    },
+    {
+        "id": "the-last-thanksgiving",
+        "title": "The Last Thanksgiving",
+        "description": "A family reunion turns deadly on Thanksgiving night. Search through reports, interrogations, and hidden evidence to uncover who poisoned Arthur Holloway — and why.",
+        "imageUrl": "/myntora-site/images/the-last-thanksgiving.png",
+        "etsyLink": "https://www.etsy.com/listing/4396850517/the-last-thanksgiving-printable-murder?sr_prefetch=0&pf_from=shop_home&ref=shop_home_active_1&pro=1&sts=1&dd=1"
     }
 ]

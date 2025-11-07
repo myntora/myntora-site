@@ -112,14 +112,6 @@
     }
   },
   {
-    "slug": "the-silent-ward",
-    "title": "The Silent Ward",
-    "type": "code",
-    "prompt": "Enter the 4-digit code to escape the ward.",
-    "answer": "4877",
-    "fullSolutionText": "You’ve escaped the Silent Ward. Not everyone was so lucky."
-  },
-  {
     "slug": "the-memory-loop",
     "title": "The Memory Loop",
     "type": "text",
@@ -132,19 +124,6 @@
     "fullSolutionText": "Loop broken. You’ve escaped the cycle of memory."
   },
   {
-    "slug": "the-memory-loop-2",
-    "title": "The Memory Loop 2",
-    "type": "text",
-    "prompt": "Who broke the cycle?",
-    "answer": [
-      "ruce",
-      "ruce harper",
-      "r.",
-      "the writer"
-    ],
-    "fullSolutionText": "You saw through the illusion. Ruce was always the anomaly."
-  },
-  {
     "slug": "the-lighthouse-keeper",
     "title": "The Lighthouse Keeper: Murder at Hollow Point",
     "type": "text",
@@ -155,30 +134,6 @@
       "marsh"
     ],
     "fullSolutionText": "Captain Edwin Marsh confronted Thomas Hale inside the lighthouse during the storm of November 3rd, 1989. Their long-standing resentment and jealousy over Lydia Hale led to a violent argument. Hale fell from the staircase after being struck during the struggle, hitting the railing before the floor. The dual impact found in the forensic report confirms this. To avoid scandal and protect the town’s reputation, Chief Griggs ordered the death ruled as accidental, and Noah Price manipulated the weather records to erase the crucial 23:10–23:40 window. For decades, Hollow Point lived by silence—its people choosing peace over truth. You’ve uncovered what the sea and the storm tried to bury."
-  },
-  {
-    "slug": "whispers-in-the-conservatory",
-    "title": "Whispers in the Conservatory",
-    "type": "text",
-    "prompt": "Who was the killer?",
-    "answer": "sabastian mahr",
-    "fullSolutionText": "Sabastian Mahr orchestrated the crime behind layers of silence and subtlety."
-  },
-  {
-    "slug": "the-affair-file",
-    "title": "The Affair File",
-    "type": "text",
-    "prompt": "Who was the killer?",
-    "answer": "michael halden",
-    "fullSolutionText": "Jealousy runs deep. Michael Halden crossed the line from betrayal to murder."
-  },
-  {
-    "slug": "detective-dad",
-    "title": "Detective Dad",
-    "type": "text",
-    "prompt": "Who hid the gift?",
-    "answer": "leo",
-    "fullSolutionText": "Leo pulled off the perfect surprise. Case closed, Dad!"
   },
   {
     "slug": "all-of-you",
@@ -367,89 +322,6 @@
     "fullSolutionText": "You found the truth. The fifth witness never existed — he was the detective who wrote the reports, signed the autopsy, and hid behind his own handwriting. Detective Mercer was at the scene, his memory split into four voices so he could live with what he’d done. The lavender on her hands, the reflection in the glass, the erased minutes... were all his. He didn’t remember her death — he remembered the guilt."
   },
   {
-    "slug": "five-hours-missing",
-    "title": "Five Hours Missing",
-    "type": "choice",
-    "prompt": "After reviewing all the evidence, what do you believe truly happened during the missing five hours?",
-    "options": [
-      "David Mercer killed Emily Carver.",
-      "Dr. L. Moreau manipulated David’s mind.",
-      "Emily Carver staged her own death.",
-      "A third unknown person orchestrated the entire event."
-    ],
-    "outcomes": {
-      "David Mercer killed Emily Carver.": {
-        "verdictLabel": "You Followed the Obvious Trail",
-        "profile": {
-          "label": "The Pragmatist",
-          "description": "You trust evidence over theory — blood, fingerprints, and motive are enough for you."
-        },
-        "reasoning": [
-          "Mercer’s fingerprints and the victim’s blood were undeniable.",
-          "The glass fibers and timeline align with direct confrontation.",
-          "His fragmented memory could be repression rather than manipulation."
-        ],
-        "contradictions": [
-          "GPS tampering suggests external interference.",
-          "No defensive wounds on Emily weaken the struggle theory."
-        ],
-        "closing": "You saw a crime of passion, not conspiracy — perhaps that’s how justice prefers it."
-      },
-      "Dr. L. Moreau manipulated David’s mind.": {
-        "verdictLabel": "You Chose the Psychological Path",
-        "profile": {
-          "label": "The Analyst",
-          "description": "You see control and suggestion behind chaos — truth lies in manipulation, not memory."
-        },
-        "reasoning": [
-          "Repeated hypnosis sessions tie directly to David’s blackout.",
-          "Voice interference at timestamp 14:34 supports tampering with consciousness.",
-          "Dr. Moreau’s name appears in both autopsy and therapy records — too convenient."
-        ],
-        "contradictions": [
-          "No material gain or motive for Moreau is clearly established.",
-          "If she orchestrated it, why leave evidence pointing to herself?"
-        ],
-        "closing": "You believe the mind is the ultimate crime scene — and Dr. Moreau knew how to use it."
-      },
-      "Emily Carver staged her own death.": {
-        "verdictLabel": "You Saw Through the Stage",
-        "profile": {
-          "label": "The Theorist",
-          "description": "You question everything — even death itself. Deception is just another form of control."
-        },
-        "reasoning": [
-          "No soil or water sediment found on Emily’s skin implies she was moved postmortem.",
-          "Sedative dosage was non-lethal — perfect for simulating death.",
-          "Witness statement mentions movement after the supposed time of death."
-        ],
-        "contradictions": [
-          "DNA and blood traces on Mercer were authentic.",
-          "No verified evidence Emily left the area alive."
-        ],
-        "closing": "You believe Emily wrote the ending of her own story — one final act of control."
-      },
-      "A third unknown person orchestrated the entire event.": {
-        "verdictLabel": "You Trusted the Gaps in the Story",
-        "profile": {
-          "label": "The Skeptic",
-          "description": "You see patterns where others see coincidence — for you, absence of evidence is the biggest clue."
-        },
-        "reasoning": [
-          "The palm print at the window didn’t match Mercer or Emily.",
-          "GPS edit detected via external cable input suggests tampering.",
-          "Witness heard the phrase 'She had to see it' — doesn’t match either main suspect’s dialogue."
-        ],
-        "contradictions": [
-          "No known suspect fits the new profile.",
-          "Lack of physical evidence makes this theory circumstantial."
-        ],
-        "closing": "You believe a ghost in the system pulled the strings — and everyone else played their part unknowingly."
-      }
-    },
-    "fullSolutionText": "There is no confirmed truth in this case — only the fragments of memory and manipulation left behind. The real mystery is whether what you believe… makes you part of the story."
-  },
-  {
     "slug": "trick-or-treat-gone-wrong",
     "title": "Trick or Treat Gone Wrong",
     "type": "text",
@@ -506,5 +378,45 @@
       "catherine"
     ],
     "fullSolutionText": "Catherine Boone poisoned Arthur Holloway. Years ago, Arthur’s company, Holloway Holdings, covered up a factory accident that killed Daniel Boone — Catherine’s husband. The case was buried, and Arthur lived with that secret while Catherine raised their son, Liam, in silence. When Arthur decided to revise his will to publicly make amends, Catherine knew his confession would come too late to matter. On Thanksgiving night, she poured his final glass of wine, laced with arsenic, and left him to the same quiet fate he had given her family years before. She did not act out of rage, but out of a cold, deliberate sense of balance — the kind of justice Arthur once denied others."
+  },
+  {
+    "slug": "silent-night-deadly-secret",
+    "title": "Silent Night, Deadly Secret",
+    "type": "text",
+    "prompt": "Who killed Harold Finch at the Evergreen Charity Gala?",
+    "answer": [
+      "tina mallory",
+      "mallory",
+      "tina"
+    ],
+    "fullSolutionText": "You uncovered the truth. Event coordinator Tina Mallory orchestrated Harold Finch’s death during the blackout at the Evergreen Charity Gala. She poisoned his mulled wine moments before cutting the power to mask the act. Motive: revenge for years of manipulation and professional humiliation under Finch’s control. Method: ethyl cyanohydrin, introduced through the drink during her timed call to the bar at 8:13 PM. Evidence: the bar call record, Nick Carson’s statement about a woman’s voice giving orders, and Tina’s final message — 'Everyone will get exactly what they deserve.'",
+    "reveal": {
+      "verdict": "Homicide by Tina Mallory",
+      "motive": "Revenge and retribution after years of professional manipulation and personal betrayal by Harold Finch.",
+      "method": "Poisoned mulled wine prepared under the pretext of bar coordination minutes before the power outage.",
+      "evidence": [
+        "Bar call record at 8:13 PM initiated by Tina.",
+        "Witness Nick Carson heard a female voice giving an instruction to serve Finch’s drink.",
+        "Tina’s threatening messages: 'Details are what kill you' and 'Enjoy your wine.'",
+        "Zoning of the blackout matched the electrical panel controlled from her station."
+      ],
+      "timeline": [
+        "8:10 PM — Finch receives his final drink.",
+        "8:13 PM — Tina calls the bar to confirm 'service sequence.'",
+        "8:14–8:17 PM — Planned blackout hides the poisoning moment.",
+        "8:18 PM — Lights return; Finch collapses beside the tree."
+      ],
+      "epilogue": "Tina Mallory’s calm coordination masked her guilt until the digital evidence exposed the truth. Justice, like Christmas lights, flickers only when someone decides to turn it on."
+    },
+    "incorrect": {
+      "generic": "Re-evaluate who had access to the bar, control of the lighting, and a clear motive tied to revenge and timing. The truth hides in the blackout.",
+      "bySuspect": {
+        "clara finch": "Emotional motive alone doesn’t match the precision of the poisoning or control of the blackout.",
+        "evan brooks": "His statements are contradictory, but his lack of technical access rules him out.",
+        "nick carson": "He witnessed part of the setup but never left his post near the control booth."
+      }
+    },
+    "version": "2025-11-07a",
+    "cta": "Play another case"
   }
 ]
